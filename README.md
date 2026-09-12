@@ -58,7 +58,7 @@ npm run docs:build
 默认配置适合部署到：
 
 ```txt
-https://用户名.github.io/front-guide/
+https://用户名.github.io/raw-bits/
 ```
 
 如果使用自定义域名，请把 `docs/.vitepress/config.mts` 中的 `siteBase` 改为 `/`，或在构建环境设置：

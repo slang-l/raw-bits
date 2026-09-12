@@ -20,15 +20,15 @@ outline: deep
 
 ```js
 function debounce(fn, delay = 300) {
-  let timer = null
+  let timer = null;
 
   return function (...args) {
-    clearTimeout(timer)
+    clearTimeout(timer);
 
     timer = setTimeout(() => {
-      fn.apply(this, args)
-    }, delay)
-  }
+      fn.apply(this, args);
+    }, delay);
+  };
 }
 ```
 
@@ -36,10 +36,10 @@ function debounce(fn, delay = 300) {
 
 ```js
 const onInput = debounce(function (event) {
-  console.log(event.target.value)
-}, 300)
+  console.log(event.target.value);
+}, 300);
 
-document.querySelector('input').addEventListener('input', onInput)
+document.querySelector("input").addEventListener("input", onInput);
 ```
 
 面试补充：防抖的关键是通过闭包保存同一个定时器，并在新事件到来时取消上一次计划。
@@ -56,16 +56,16 @@ document.querySelector('input').addEventListener('input', onInput)
 
 ```js
 function throttle(fn, delay = 300) {
-  let lastTime = 0
+  let lastTime = 0;
 
   return function (...args) {
-    const now = Date.now()
+    const now = Date.now();
 
     if (now - lastTime >= delay) {
-      lastTime = now
-      fn.apply(this, args)
+      lastTime = now;
+      fn.apply(this, args);
     }
-  }
+  };
 }
 ```
 
@@ -73,25 +73,25 @@ function throttle(fn, delay = 300) {
 
 ```js
 function throttleWithTrailing(fn, delay = 300) {
-  let lastTime = 0
-  let timer = null
+  let lastTime = 0;
+  let timer = null;
 
   return function (...args) {
-    const now = Date.now()
-    const remaining = delay - (now - lastTime)
+    const now = Date.now();
+    const remaining = delay - (now - lastTime);
 
-    clearTimeout(timer)
+    clearTimeout(timer);
 
     if (remaining <= 0) {
-      lastTime = now
-      fn.apply(this, args)
+      lastTime = now;
+      fn.apply(this, args);
     } else {
       timer = setTimeout(() => {
-        lastTime = Date.now()
-        fn.apply(this, args)
-      }, remaining)
+        lastTime = Date.now();
+        fn.apply(this, args);
+      }, remaining);
     }
-  }
+  };
 }
 ```
 
@@ -101,33 +101,33 @@ function throttleWithTrailing(fn, delay = 300) {
 
 ```js
 function deepClone(value, cache = new WeakMap()) {
-  if (value === null || typeof value !== 'object') {
-    return value
+  if (value === null || typeof value !== "object") {
+    return value;
   }
 
   if (cache.has(value)) {
-    return cache.get(value)
+    return cache.get(value);
   }
 
-  const result = Array.isArray(value) ? [] : {}
-  cache.set(value, result)
+  const result = Array.isArray(value) ? [] : {};
+  cache.set(value, result);
 
   Reflect.ownKeys(value).forEach((key) => {
-    result[key] = deepClone(value[key], cache)
-  })
+    result[key] = deepClone(value[key], cache);
+  });
 
-  return result
+  return result;
 }
 ```
 
 这个版本支持循环引用：
 
 ```js
-const source = { name: 'front-guide' }
-source.self = source
+const source = { name: "raw-bits" };
+source.self = source;
 
-const cloned = deepClone(source)
-console.log(cloned.self === cloned) // true
+const cloned = deepClone(source);
+console.log(cloned.self === cloned); // true
 ```
 
 面试补充：完整深拷贝还要考虑 `Date`、`RegExp`、`Map`、`Set`、函数、原型和属性描述符。
@@ -138,31 +138,34 @@ console.log(cloned.self === cloned) // true
 
 ```js
 function myInstanceof(value, target) {
-  if (value === null || (typeof value !== 'object' && typeof value !== 'function')) {
-    return false
+  if (
+    value === null ||
+    (typeof value !== "object" && typeof value !== "function")
+  ) {
+    return false;
   }
 
-  let proto = Object.getPrototypeOf(value)
-  const prototype = target.prototype
+  let proto = Object.getPrototypeOf(value);
+  const prototype = target.prototype;
 
   while (proto) {
     if (proto === prototype) {
-      return true
+      return true;
     }
 
-    proto = Object.getPrototypeOf(proto)
+    proto = Object.getPrototypeOf(proto);
   }
 
-  return false
+  return false;
 }
 ```
 
 测试：
 
 ```js
-myInstanceof([], Array) // true
-myInstanceof({}, Array) // false
-myInstanceof(() => {}, Function) // true
+myInstanceof([], Array); // true
+myInstanceof({}, Array); // false
+myInstanceof(() => {}, Function); // true
 ```
 
 面试补充：`instanceof` 和 `typeof` 的判断维度不同，前者关注原型链，后者关注基础类型标签。
@@ -174,27 +177,27 @@ myInstanceof(() => {}, Function) // true
 ```js
 function promiseAll(list) {
   return new Promise((resolve, reject) => {
-    const result = []
-    let count = 0
+    const result = [];
+    let count = 0;
 
     if (list.length === 0) {
-      resolve(result)
-      return
+      resolve(result);
+      return;
     }
 
     list.forEach((item, index) => {
       Promise.resolve(item)
         .then((value) => {
-          result[index] = value
-          count++
+          result[index] = value;
+          count++;
 
           if (count === list.length) {
-            resolve(result)
+            resolve(result);
           }
         })
-        .catch(reject)
-    })
-  })
+        .catch(reject);
+    });
+  });
 }
 ```
 
@@ -204,10 +207,10 @@ function promiseAll(list) {
 promiseAll([
   Promise.resolve(1),
   2,
-  new Promise((resolve) => setTimeout(() => resolve(3), 100))
+  new Promise((resolve) => setTimeout(() => resolve(3), 100)),
 ]).then((result) => {
-  console.log(result) // [1, 2, 3]
-})
+  console.log(result); // [1, 2, 3]
+});
 ```
 
 实现重点：

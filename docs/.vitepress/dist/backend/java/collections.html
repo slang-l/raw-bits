@@ -1,79 +1,1634 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Java 集合框架 | Front Guide</title>
-    <meta name="description" content="Java List、Set、Map、Queue 的使用场景和常见注意点">
-    <meta name="generator" content="VitePress v1.6.4">
-    <link rel="preload stylesheet" href="/front-guide/assets/style.CDGLoRUw.css" as="style">
-    <link rel="preload stylesheet" href="/front-guide/vp-icons.css" as="style">
-    <script type="module" src="/front-guide/assets/chunks/metadata.4de8ee24.js"></script>
-    <script type="module" src="/front-guide/assets/app.CGCz3U2N.js"></script>
-    <link rel="preload" href="/front-guide/assets/inter-roman-latin.Di8DUHzh.woff2" as="font" type="font/woff2" crossorigin="">
-    <link rel="modulepreload" href="/front-guide/assets/chunks/theme.P9mw9BLs.js">
-    <link rel="modulepreload" href="/front-guide/assets/chunks/framework.C5oj02QE.js">
-    <link rel="modulepreload" href="/front-guide/assets/backend_java_collections.md.ByLNKzUv.lean.js">
-    <meta name="theme-color" content="#2563eb">
-    <link rel="icon" href="/front-guide/logo.svg">
-    <script id="check-dark-mode">(()=>{const e=localStorage.getItem("vitepress-theme-appearance")||"auto",a=window.matchMedia("(prefers-color-scheme: dark)").matches;(!e||e==="auto"?a:e==="dark")&&document.documentElement.classList.add("dark")})();</script>
-    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+    <meta
+      name="description"
+      content="Java List、Set、Map、Queue 的使用场景和常见注意点"
+    />
+    <meta name="generator" content="VitePress v1.6.4" />
+    <link
+      rel="preload stylesheet"
+      href="/raw-bits/assets/style.CDGLoRUw.css"
+      as="style"
+    />
+    <link rel="preload stylesheet" href="/raw-bits/vp-icons.css" as="style" />
+    <script
+      type="module"
+      src="/raw-bits/assets/chunks/metadata.4de8ee24.js"
+    ></script>
+    <script type="module" src="/raw-bits/assets/app.CGCz3U2N.js"></script>
+    <link
+      rel="preload"
+      href="/raw-bits/assets/inter-roman-latin.Di8DUHzh.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin=""
+    />
+    <link
+      rel="modulepreload"
+      href="/raw-bits/assets/chunks/theme.P9mw9BLs.js"
+    />
+    <link
+      rel="modulepreload"
+      href="/raw-bits/assets/chunks/framework.C5oj02QE.js"
+    />
+    <link
+      rel="modulepreload"
+      href="/raw-bits/assets/backend_java_collections.md.ByLNKzUv.lean.js"
+    />
+    <meta name="theme-color" content="#2563eb" />
+    <link rel="icon" href="/raw-bits/logo.svg" />
+    <script id="check-dark-mode">
+      (() => {
+        const e = localStorage.getItem("vitepress-theme-appearance") || "auto",
+          a = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        (!e || e === "auto" ? a : e === "dark") &&
+          document.documentElement.classList.add("dark");
+      })();
+    </script>
+    <script id="check-mac-os">
+      document.documentElement.classList.toggle(
+        "mac",
+        /Mac|iPhone|iPod|iPad/i.test(navigator.platform),
+      );
+    </script>
   </head>
   <body>
-    <div id="app"><!--[--><!--v-if--><!--v-if--><!--v-if--><!--[--><!--v-if--><!----><!--v-if--><div class="tk-right-bottom-button tk-wallpaper-outside flx-column"><!--[--><!--]--><div title="返回顶部" class="tk-right-bottom-button__button back-top" style="--tk-progress:0;display:none;" role="button" aria-label="返回顶部" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><span class="content">0</span></div><!--v-if--><!--v-if--><!--[--><!--]--></div><!--]--><div class="Layout tk-layout has-sidebar-trigger" data-v-9a104c51><!--[--><!--]--><!--[--><span tabindex="-1" data-v-0b0ada53></span><a href="#VPContent" class="VPSkipLink visually-hidden" data-v-0b0ada53>Skip to content</a><!--]--><!----><header class="VPNav" data-v-9a104c51 data-v-ae24b3ad><div class="VPNavBar" data-v-ae24b3ad data-v-6aa21345><div class="wrapper" data-v-6aa21345><div class="container" data-v-6aa21345><div class="title" data-v-6aa21345><div class="VPNavBarTitle has-sidebar" data-v-6aa21345 data-v-1168a8e4><a class="title" href="/front-guide/" data-v-1168a8e4><!--[--><!--]--><!--[--><img class="VPImage logo" src="/front-guide/logo.svg" alt data-v-8426fc1a><!--]--><span data-v-1168a8e4>Front Guide</span><!--[--><!--]--></a></div></div><div class="content" data-v-6aa21345><div class="content-body" data-v-6aa21345><!--[--><!--]--><div class="VPNavBarSearch search" data-v-6aa21345><!--[--><!----><div id="local-search"><button type="button" class="DocSearch DocSearch-Button" aria-label="搜索文档"><span class="DocSearch-Button-Container"><span class="vp-icon DocSearch-Search-Icon"></span><span class="DocSearch-Button-Placeholder">搜索文档</span></span><span class="DocSearch-Button-Keys"><kbd class="DocSearch-Button-Key"></kbd><kbd class="DocSearch-Button-Key">K</kbd></span></button></div><!--]--></div><nav aria-labelledby="main-nav-aria-label" class="VPNavBarMenu menu" data-v-6aa21345 data-v-dc692963><span id="main-nav-aria-label" class="visually-hidden" data-v-dc692963> Main Navigation </span><!--[--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/front-guide/" tabindex="0" data-v-dc692963 data-v-e56f3d57><!--[--><span data-v-e56f3d57>首页</span><!--]--></a><!--]--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/front-guide/basic/" tabindex="0" data-v-dc692963 data-v-e56f3d57><!--[--><span data-v-e56f3d57>前端基础</span><!--]--></a><!--]--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/front-guide/javascript/" tabindex="0" data-v-dc692963 data-v-e56f3d57><!--[--><span data-v-e56f3d57>JavaScript</span><!--]--></a><!--]--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/front-guide/typescript/" tabindex="0" data-v-dc692963 data-v-e56f3d57><!--[--><span data-v-e56f3d57>TypeScript</span><!--]--></a><!--]--><!--[--><div class="VPFlyout VPNavBarMenuGroup" data-v-dc692963 data-v-cf11d7a2><button type="button" class="button" aria-haspopup="true" aria-expanded="false" data-v-cf11d7a2><span class="text" data-v-cf11d7a2><!----><span data-v-cf11d7a2>Vue / React</span><span class="vpi-chevron-down text-icon" data-v-cf11d7a2></span></span></button><div class="menu" data-v-cf11d7a2><div class="VPMenu" data-v-cf11d7a2 data-v-b98bc113><div class="items" data-v-b98bc113><!--[--><!--[--><div class="VPMenuLink" data-v-b98bc113 data-v-35975db6><a class="VPLink link" href="/front-guide/vue/" data-v-35975db6><!--[--><span data-v-35975db6>Vue</span><!--]--></a></div><!--]--><!--[--><div class="VPMenuLink" data-v-b98bc113 data-v-35975db6><a class="VPLink link" href="/front-guide/react/" data-v-35975db6><!--[--><span data-v-35975db6>React</span><!--]--></a></div><!--]--><!--]--></div><!--[--><!--]--></div></div></div><!--]--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/front-guide/engineering/" tabindex="0" data-v-dc692963 data-v-e56f3d57><!--[--><span data-v-e56f3d57>工程化</span><!--]--></a><!--]--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/front-guide/browser/" tabindex="0" data-v-dc692963 data-v-e56f3d57><!--[--><span data-v-e56f3d57>浏览器</span><!--]--></a><!--]--><!--[--><div class="VPFlyout VPNavBarMenuGroup" data-v-dc692963 data-v-cf11d7a2><button type="button" class="button" aria-haspopup="true" aria-expanded="false" data-v-cf11d7a2><span class="text" data-v-cf11d7a2><!----><span data-v-cf11d7a2>后端</span><span class="vpi-chevron-down text-icon" data-v-cf11d7a2></span></span></button><div class="menu" data-v-cf11d7a2><div class="VPMenu" data-v-cf11d7a2 data-v-b98bc113><div class="items" data-v-b98bc113><!--[--><!--[--><div class="VPMenuLink" data-v-b98bc113 data-v-35975db6><a class="VPLink link" href="/front-guide/backend/java/" data-v-35975db6><!--[--><span data-v-35975db6>Java</span><!--]--></a></div><!--]--><!--[--><div class="VPMenuLink" data-v-b98bc113 data-v-35975db6><a class="VPLink link" href="/front-guide/backend/spring/" data-v-35975db6><!--[--><span data-v-35975db6>Spring</span><!--]--></a></div><!--]--><!--[--><div class="VPMenuLink" data-v-b98bc113 data-v-35975db6><a class="VPLink link" href="/front-guide/backend/spring-boot/" data-v-35975db6><!--[--><span data-v-35975db6>Spring Boot</span><!--]--></a></div><!--]--><!--]--></div><!--[--><!--]--></div></div></div><!--]--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/front-guide/interview/" tabindex="0" data-v-dc692963 data-v-e56f3d57><!--[--><span data-v-e56f3d57>面试指南</span><!--]--></a><!--]--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/front-guide/roadmap/" tabindex="0" data-v-dc692963 data-v-e56f3d57><!--[--><span data-v-e56f3d57>学习路线</span><!--]--></a><!--]--><!--[--><a class="VPLink link vp-external-link-icon VPNavBarMenuLink" href="https://github.com/your-name/front-guide" target="_blank" rel="noreferrer" tabindex="0" data-v-dc692963 data-v-e56f3d57><!--[--><span data-v-e56f3d57>GitHub</span><!--]--></a><!--]--><!--]--></nav><!----><div class="VPNavBarAppearance appearance" data-v-6aa21345 data-v-6c893767><button class="VPSwitch VPSwitchAppearance" type="button" role="switch" title aria-checked="false" data-v-6c893767 data-v-5337faa4 data-v-1d5665e3><span class="check" data-v-1d5665e3><span class="icon" data-v-1d5665e3><!--[--><span class="vpi-sun sun" data-v-5337faa4></span><span class="vpi-moon moon" data-v-5337faa4></span><!--]--></span></span></button></div><div class="VPSocialLinks VPNavBarSocialLinks social-links" data-v-6aa21345 data-v-0394ad82 data-v-7bc22406><!--[--><a class="VPSocialLink no-icon" href="https://github.com/your-name/front-guide" aria-label="github" target="_blank" rel="noopener" data-v-7bc22406 data-v-bd121fe5><span class="vpi-social-github"></span></a><!--]--></div><div class="VPFlyout VPNavBarExtra extra" data-v-6aa21345 data-v-bb2aa2f0 data-v-cf11d7a2><button type="button" class="button" aria-haspopup="true" aria-expanded="false" aria-label="extra navigation" data-v-cf11d7a2><span class="vpi-more-horizontal icon" data-v-cf11d7a2></span></button><div class="menu" data-v-cf11d7a2><div class="VPMenu" data-v-cf11d7a2 data-v-b98bc113><!----><!--[--><!--[--><!----><div class="group" data-v-bb2aa2f0><div class="item appearance" data-v-bb2aa2f0><p class="label" data-v-bb2aa2f0>Appearance</p><div class="appearance-action" data-v-bb2aa2f0><button class="VPSwitch VPSwitchAppearance" type="button" role="switch" title aria-checked="false" data-v-bb2aa2f0 data-v-5337faa4 data-v-1d5665e3><span class="check" data-v-1d5665e3><span class="icon" data-v-1d5665e3><!--[--><span class="vpi-sun sun" data-v-5337faa4></span><span class="vpi-moon moon" data-v-5337faa4></span><!--]--></span></span></button></div></div></div><div class="group" data-v-bb2aa2f0><div class="item social-links" data-v-bb2aa2f0><div class="VPSocialLinks social-links-list" data-v-bb2aa2f0 data-v-7bc22406><!--[--><a class="VPSocialLink no-icon" href="https://github.com/your-name/front-guide" aria-label="github" target="_blank" rel="noopener" data-v-7bc22406 data-v-bd121fe5><span class="vpi-social-github"></span></a><!--]--></div></div></div><!--]--><!--]--></div></div></div><!--[--><!--[--><!--[--><!--[--><!--]--><!--[--><div class="tk-theme-enhance flx-align-center"><!--[--><i class="tk-icon" style="--icon-size:20px;--icon-color-hover:var(--tk-theme-color);"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
-    <path
-      fill="currentColor"
-      d="m512 863.36 384-54.848v-638.72L525.568 222.72a96 96 0 0 1-27.136 0L128 169.792v638.72zM137.024 106.432l370.432 52.928a32 32 0 0 0 9.088 0l370.432-52.928A64 64 0 0 1 960 169.792v638.72a64 64 0 0 1-54.976 63.36l-388.48 55.488a32 32 0 0 1-9.088 0l-388.48-55.488A64 64 0 0 1 64 808.512v-638.72a64 64 0 0 1 73.024-63.36z"
-    ></path>
-    <path fill="currentColor" d="M480 192h64v704h-64z"></path>
-  </svg></i><!--]--></div><!--teleport start--><!--teleport end--><!--]--><!--]--><!--]--><!--]--><button type="button" class="VPNavBarHamburger hamburger" aria-label="mobile navigation" aria-expanded="false" aria-controls="VPNavScreen" data-v-6aa21345 data-v-e5dd9c1c><span class="container" data-v-e5dd9c1c><span class="top" data-v-e5dd9c1c></span><span class="middle" data-v-e5dd9c1c></span><span class="bottom" data-v-e5dd9c1c></span></span></button></div></div></div></div><div class="divider" data-v-6aa21345><div class="divider-line" data-v-6aa21345></div></div></div><!----></header><div class="VPLocalNav has-sidebar empty" data-v-9a104c51 data-v-a6f0e41e><div class="container" data-v-a6f0e41e><button class="menu" aria-expanded="false" aria-controls="VPSidebarNav" data-v-a6f0e41e><span class="vpi-align-left menu-icon" data-v-a6f0e41e></span><span class="menu-text" data-v-a6f0e41e>Menu</span></button><div class="VPLocalNavOutlineDropdown" style="--vp-vh:0px;" data-v-a6f0e41e data-v-8a42e2b4><button data-v-8a42e2b4>Return to top</button><!----></div></div></div><aside class="VPSidebar" data-v-9a104c51 data-v-319d5ca6><div class="curtain" data-v-319d5ca6></div><nav class="nav" id="VPSidebarNav" aria-labelledby="sidebar-aria-label" tabindex="-1" data-v-319d5ca6><span class="visually-hidden" id="sidebar-aria-label" data-v-319d5ca6> Sidebar Navigation </span><!--[--><!--[--><!--v-if--><!--]--><!--]--><!--[--><div class="no-transition group" data-v-c40bc020><section class="VPSidebarItem level-0 has-active" data-v-c40bc020 data-v-b3fd67f8><div class="item" role="button" tabindex="0" data-v-b3fd67f8><div class="indicator" data-v-b3fd67f8></div><h2 class="text" data-v-b3fd67f8>后端模块</h2><!----></div><div class="items" data-v-b3fd67f8><!--[--><div class="VPSidebarItem level-1 is-link" data-v-b3fd67f8 data-v-b3fd67f8><div class="item" data-v-b3fd67f8><div class="indicator" data-v-b3fd67f8></div><a class="VPLink link link" href="/front-guide/backend/" data-v-b3fd67f8><!--[--><p class="text" data-v-b3fd67f8>概览</p><!--]--></a><!----></div><!----></div><section class="VPSidebarItem level-1 collapsible is-link has-active" data-v-b3fd67f8 data-v-b3fd67f8><div class="item" tabindex="0" data-v-b3fd67f8><div class="indicator" data-v-b3fd67f8></div><a class="VPLink link link" href="/front-guide/backend/java/" data-v-b3fd67f8><!--[--><h3 class="text" data-v-b3fd67f8>Java</h3><!--]--></a><div class="caret" role="button" aria-label="toggle section" tabindex="0" data-v-b3fd67f8><span class="vpi-chevron-right caret-icon" data-v-b3fd67f8></span></div></div><div class="items" data-v-b3fd67f8><!--[--><div class="VPSidebarItem level-2 is-link" data-v-b3fd67f8 data-v-b3fd67f8><div class="item" data-v-b3fd67f8><div class="indicator" data-v-b3fd67f8></div><a class="VPLink link link" href="/front-guide/backend/java/" data-v-b3fd67f8><!--[--><p class="text" data-v-b3fd67f8>Java 概览</p><!--]--></a><!----></div><!----></div><div class="VPSidebarItem level-2 is-link" data-v-b3fd67f8 data-v-b3fd67f8><div class="item" data-v-b3fd67f8><div class="indicator" data-v-b3fd67f8></div><a class="VPLink link link" href="/front-guide/backend/java/basic-syntax" data-v-b3fd67f8><!--[--><p class="text" data-v-b3fd67f8>基础语法</p><!--]--></a><!----></div><!----></div><div class="VPSidebarItem level-2 is-link" data-v-b3fd67f8 data-v-b3fd67f8><div class="item" data-v-b3fd67f8><div class="indicator" data-v-b3fd67f8></div><a class="VPLink link link" href="/front-guide/backend/java/oop" data-v-b3fd67f8><!--[--><p class="text" data-v-b3fd67f8>面向对象</p><!--]--></a><!----></div><!----></div><div class="VPSidebarItem level-2 is-link" data-v-b3fd67f8 data-v-b3fd67f8><div class="item" data-v-b3fd67f8><div class="indicator" data-v-b3fd67f8></div><a class="VPLink link link" href="/front-guide/backend/java/collections" data-v-b3fd67f8><!--[--><p class="text" data-v-b3fd67f8>集合框架</p><!--]--></a><!----></div><!----></div><div class="VPSidebarItem level-2 is-link" data-v-b3fd67f8 data-v-b3fd67f8><div class="item" data-v-b3fd67f8><div class="indicator" data-v-b3fd67f8></div><a class="VPLink link link" href="/front-guide/backend/java/exception" data-v-b3fd67f8><!--[--><p class="text" data-v-b3fd67f8>异常处理</p><!--]--></a><!----></div><!----></div><div class="VPSidebarItem level-2 is-link" data-v-b3fd67f8 data-v-b3fd67f8><div class="item" data-v-b3fd67f8><div class="indicator" data-v-b3fd67f8></div><a class="VPLink link link" href="/front-guide/backend/java/concurrency" data-v-b3fd67f8><!--[--><p class="text" data-v-b3fd67f8>并发编程</p><!--]--></a><!----></div><!----></div><div class="VPSidebarItem level-2 is-link" data-v-b3fd67f8 data-v-b3fd67f8><div class="item" data-v-b3fd67f8><div class="indicator" data-v-b3fd67f8></div><a class="VPLink link link" href="/front-guide/backend/java/jvm" data-v-b3fd67f8><!--[--><p class="text" data-v-b3fd67f8>JVM 基础</p><!--]--></a><!----></div><!----></div><!--]--></div></section><section class="VPSidebarItem level-1 collapsible is-link" data-v-b3fd67f8 data-v-b3fd67f8><div class="item" tabindex="0" data-v-b3fd67f8><div class="indicator" data-v-b3fd67f8></div><a class="VPLink link link" href="/front-guide/backend/spring/" data-v-b3fd67f8><!--[--><h3 class="text" data-v-b3fd67f8>Spring</h3><!--]--></a><div class="caret" role="button" aria-label="toggle section" tabindex="0" data-v-b3fd67f8><span class="vpi-chevron-right caret-icon" data-v-b3fd67f8></span></div></div><div class="items" data-v-b3fd67f8><!--[--><div class="VPSidebarItem level-2 is-link" data-v-b3fd67f8 data-v-b3fd67f8><div class="item" data-v-b3fd67f8><div class="indicator" data-v-b3fd67f8></div><a class="VPLink link link" href="/front-guide/backend/spring/" data-v-b3fd67f8><!--[--><p class="text" data-v-b3fd67f8>Spring 概览</p><!--]--></a><!----></div><!----></div><div class="VPSidebarItem level-2 is-link" data-v-b3fd67f8 data-v-b3fd67f8><div class="item" data-v-b3fd67f8><div class="indicator" data-v-b3fd67f8></div><a class="VPLink link link" href="/front-guide/backend/spring/ioc" data-v-b3fd67f8><!--[--><p class="text" data-v-b3fd67f8>IoC 与 DI</p><!--]--></a><!----></div><!----></div><div class="VPSidebarItem level-2 is-link" data-v-b3fd67f8 data-v-b3fd67f8><div class="item" data-v-b3fd67f8><div class="indicator" data-v-b3fd67f8></div><a class="VPLink link link" href="/front-guide/backend/spring/bean-lifecycle" data-v-b3fd67f8><!--[--><p class="text" data-v-b3fd67f8>Bean 生命周期</p><!--]--></a><!----></div><!----></div><div class="VPSidebarItem level-2 is-link" data-v-b3fd67f8 data-v-b3fd67f8><div class="item" data-v-b3fd67f8><div class="indicator" data-v-b3fd67f8></div><a class="VPLink link link" href="/front-guide/backend/spring/aop" data-v-b3fd67f8><!--[--><p class="text" data-v-b3fd67f8>AOP</p><!--]--></a><!----></div><!----></div><div class="VPSidebarItem level-2 is-link" data-v-b3fd67f8 data-v-b3fd67f8><div class="item" data-v-b3fd67f8><div class="indicator" data-v-b3fd67f8></div><a class="VPLink link link" href="/front-guide/backend/spring/transaction" data-v-b3fd67f8><!--[--><p class="text" data-v-b3fd67f8>声明式事务</p><!--]--></a><!----></div><!----></div><div class="VPSidebarItem level-2 is-link" data-v-b3fd67f8 data-v-b3fd67f8><div class="item" data-v-b3fd67f8><div class="indicator" data-v-b3fd67f8></div><a class="VPLink link link" href="/front-guide/backend/spring/mvc" data-v-b3fd67f8><!--[--><p class="text" data-v-b3fd67f8>Spring MVC</p><!--]--></a><!----></div><!----></div><!--]--></div></section><section class="VPSidebarItem level-1 collapsible is-link" data-v-b3fd67f8 data-v-b3fd67f8><div class="item" tabindex="0" data-v-b3fd67f8><div class="indicator" data-v-b3fd67f8></div><a class="VPLink link link" href="/front-guide/backend/spring-boot/" data-v-b3fd67f8><!--[--><h3 class="text" data-v-b3fd67f8>Spring Boot</h3><!--]--></a><div class="caret" role="button" aria-label="toggle section" tabindex="0" data-v-b3fd67f8><span class="vpi-chevron-right caret-icon" data-v-b3fd67f8></span></div></div><div class="items" data-v-b3fd67f8><!--[--><div class="VPSidebarItem level-2 is-link" data-v-b3fd67f8 data-v-b3fd67f8><div class="item" data-v-b3fd67f8><div class="indicator" data-v-b3fd67f8></div><a class="VPLink link link" href="/front-guide/backend/spring-boot/" data-v-b3fd67f8><!--[--><p class="text" data-v-b3fd67f8>Spring Boot 概览</p><!--]--></a><!----></div><!----></div><div class="VPSidebarItem level-2 is-link" data-v-b3fd67f8 data-v-b3fd67f8><div class="item" data-v-b3fd67f8><div class="indicator" data-v-b3fd67f8></div><a class="VPLink link link" href="/front-guide/backend/spring-boot/auto-configuration" data-v-b3fd67f8><!--[--><p class="text" data-v-b3fd67f8>自动配置</p><!--]--></a><!----></div><!----></div><div class="VPSidebarItem level-2 is-link" data-v-b3fd67f8 data-v-b3fd67f8><div class="item" data-v-b3fd67f8><div class="indicator" data-v-b3fd67f8></div><a class="VPLink link link" href="/front-guide/backend/spring-boot/starter" data-v-b3fd67f8><!--[--><p class="text" data-v-b3fd67f8>Starter</p><!--]--></a><!----></div><!----></div><div class="VPSidebarItem level-2 is-link" data-v-b3fd67f8 data-v-b3fd67f8><div class="item" data-v-b3fd67f8><div class="indicator" data-v-b3fd67f8></div><a class="VPLink link link" href="/front-guide/backend/spring-boot/configuration" data-v-b3fd67f8><!--[--><p class="text" data-v-b3fd67f8>配置管理</p><!--]--></a><!----></div><!----></div><div class="VPSidebarItem level-2 is-link" data-v-b3fd67f8 data-v-b3fd67f8><div class="item" data-v-b3fd67f8><div class="indicator" data-v-b3fd67f8></div><a class="VPLink link link" href="/front-guide/backend/spring-boot/web-api" data-v-b3fd67f8><!--[--><p class="text" data-v-b3fd67f8>Web 接口</p><!--]--></a><!----></div><!----></div><div class="VPSidebarItem level-2 is-link" data-v-b3fd67f8 data-v-b3fd67f8><div class="item" data-v-b3fd67f8><div class="indicator" data-v-b3fd67f8></div><a class="VPLink link link" href="/front-guide/backend/spring-boot/data-access" data-v-b3fd67f8><!--[--><p class="text" data-v-b3fd67f8>数据访问</p><!--]--></a><!----></div><!----></div><div class="VPSidebarItem level-2 is-link" data-v-b3fd67f8 data-v-b3fd67f8><div class="item" data-v-b3fd67f8><div class="indicator" data-v-b3fd67f8></div><a class="VPLink link link" href="/front-guide/backend/spring-boot/actuator" data-v-b3fd67f8><!--[--><p class="text" data-v-b3fd67f8>Actuator</p><!--]--></a><!----></div><!----></div><!--]--></div></section><!--]--></div></section></div><!--]--><!--[--><!--]--></nav></aside><div class="VPContent has-sidebar" id="VPContent" data-v-9a104c51 data-v-1428d186><div class="VPDoc has-sidebar has-aside" data-v-1428d186 data-v-39a288b8><!--[--><!--]--><div class="container" data-v-39a288b8><div class="aside" data-v-39a288b8><div class="aside-curtain" data-v-39a288b8></div><div class="aside-container" data-v-39a288b8><div class="aside-content" data-v-39a288b8><div class="VPDocAside" data-v-39a288b8 data-v-3f215769><!--[--><!--]--><!--[--><!--[--><!--[--><!--[--><!--[--><!--[--><!--]--><div class="tk-article-share"><button class="tk-article-share__button flx-center" aria-label="分享此页面" aria-live="polite"><div class="flx-center"><i class="tk-icon" style="margin-right:4px;--icon-color-hover:var(--tk-theme-color);"><svg
-    xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
-    aria-hidden="true"
-    role="img"
-    class="iconify iconify iconify--solar"
-    alt="Icon"
-    width="1em"
-    height="1em"
-    viewBox="0 0 24 24"
-    style="vertical-align: -0.125em"
-  >
-    <path
-      fill="currentColor"
-      fill-rule="evenodd"
-      d="M13.803 5.333c0-1.84 1.5-3.333 3.348-3.333A3.34 3.34 0 0 1 20.5 5.333c0 1.841-1.5 3.334-3.349 3.334a3.35 3.35 0 0 1-2.384-.994l-4.635 3.156a3.34 3.34 0 0 1-.182 1.917l5.082 3.34a3.35 3.35 0 0 1 2.12-.753a3.34 3.34 0 0 1 3.348 3.334C20.5 20.507 19 22 17.151 22a3.34 3.34 0 0 1-3.348-3.333a3.3 3.3 0 0 1 .289-1.356L9.05 14a3.35 3.35 0 0 1-2.202.821A3.34 3.34 0 0 1 3.5 11.487a3.34 3.34 0 0 1 3.348-3.333c1.064 0 2.01.493 2.623 1.261l4.493-3.059a3.3 3.3 0 0 1-.161-1.023"
-      clip-rule="evenodd"
-    ></path>
-  </svg></i> 分享此页面</div></button></div><!--[--><!--]--><!--]--><!--[--><!--]--><!--]--><!--]--><!--]--><!--]--><nav aria-labelledby="doc-outline-aria-label" class="VPDocAsideOutline" data-v-3f215769 data-v-a5bbad30><div class="content" data-v-a5bbad30><div class="outline-marker" data-v-a5bbad30></div><div aria-level="2" class="outline-title" id="doc-outline-aria-label" role="heading" data-v-a5bbad30>本页目录</div><ul class="VPDocOutlineItem root" data-v-a5bbad30 data-v-b933a997><!--[--><!--]--></ul></div></nav><!--[--><!--]--><div class="spacer" data-v-3f215769></div><!--[--><!--]--><!----><!--[--><!--]--><!--[--><!--]--></div></div></div></div><div class="content" data-v-39a288b8><div class="content-container" data-v-39a288b8><!--[--><!--[--><!--[--><!--[--><!--]--><!--[--><!--[--><!--]--><div class="tk-article-analyze flx-justify-between" aria-label="文章分析"><div class="tk-article-breadcrumb" role="navigation" aria-label="文章面包屑"><div class="tk-breadcrumb" role="navigation" aria-label="面包屑"><!--[--><span class="tk-breadcrumb__item"><span class="tk-breadcrumb__inner" role="link"><!--[--><a href="/front-guide/" title="首页" class="home hover-color" aria-label="首页"><i class="tk-icon" style="--icon-color-hover:var(--tk-theme-color);" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
-    <path
-      fill="currentColor"
-      d="M192 413.952V896h640V413.952L512 147.328zM139.52 374.4l352-293.312a32 32 0 0 1 40.96 0l352 293.312A32 32 0 0 1 896 398.976V928a32 32 0 0 1-32 32H160a32 32 0 0 1-32-32V398.976a32 32 0 0 1 11.52-24.576"
-    ></path>
-  </svg></i></a><!--]--></span><span class="tk-breadcrumb__separator" role="presentation">/</span></span><!--[--><span class="tk-breadcrumb__item"><span class="tk-breadcrumb__inner" role="link"><!--[--><span href title="backend" class="" aria-label="backend">backend</span><!--]--></span><span class="tk-breadcrumb__separator" role="presentation">/</span></span><span class="tk-breadcrumb__item"><span class="tk-breadcrumb__inner" role="link"><!--[--><span href title="java" class="" aria-label="java">java</span><!--]--></span><span class="tk-breadcrumb__separator" role="presentation">/</span></span><span class="tk-breadcrumb__item"><span class="tk-breadcrumb__inner" role="link"><!--[--><span href title="collections" class="" aria-label="collections">collections</span><!--]--></span><span class="tk-breadcrumb__separator" role="presentation">/</span></span><!--]--><!--]--></div></div><!--v-if--></div><!--[--><!--]--><!--]--><!----><!----><!----><!--v-if--><!--[--><div class="tk-sidebar-trigger" title="侧边栏展开/折叠" role="button" aria-label="侧边栏展开/折叠"><div class="tk-right-bottom-button__button"><i class="tk-icon" style="--icon-color-hover:var(--tk-theme-color);" aria-hidden="true"><svg
-    viewBox="0 0 48 48"
-    display="inline-block"
-    vertical-align="middle"
-    min-width="1.2rem"
-    width="1.2em"
-    height="1.2em"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="4">
-      <path d="M6 7h36M8 24h32" />
-      <path stroke-linejoin="round" d="M13.99 30L8 24.005L14 18m20.01 0L40 23.995L34 30" />
-      <path d="M6 41h36" />
-    </g>
-  </svg></i></div></div><!--]--><!--]--><!--]--><!--]--><main class="main" data-v-39a288b8><div style="position:relative;" class="vp-doc _front-guide_backend_java_collections" data-v-39a288b8><div><h1 id="java-集合框架" tabindex="-1">Java 集合框架 <a class="header-anchor" href="#java-集合框架" aria-label="Permalink to &quot;Java 集合框架&quot;">​</a></h1><p>集合用于保存和处理一组对象，是 Java 后端代码中最高频的基础工具之一。</p><h2 id="常见集合类型" tabindex="-1">常见集合类型 <a class="header-anchor" href="#常见集合类型" aria-label="Permalink to &quot;常见集合类型&quot;">​</a></h2><table tabindex="0"><thead><tr><th>接口</th><th>常见实现</th><th>特点</th></tr></thead><tbody><tr><td><code>List</code></td><td><code>ArrayList</code>、<code>LinkedList</code></td><td>有序、可重复</td></tr><tr><td><code>Set</code></td><td><code>HashSet</code>、<code>TreeSet</code></td><td>去重</td></tr><tr><td><code>Map</code></td><td><code>HashMap</code>、<code>TreeMap</code></td><td>键值映射</td></tr><tr><td><code>Queue</code></td><td><code>ArrayDeque</code>、<code>PriorityQueue</code></td><td>队列或优先级处理</td></tr></tbody></table><p>选择集合时，先看业务需要：是否有序、是否去重、是否按 key 查询、是否需要线程安全。</p><h2 id="list" tabindex="-1">List <a class="header-anchor" href="#list" aria-label="Permalink to &quot;List&quot;">​</a></h2><p><code>ArrayList</code> 适合大多数按顺序保存数据的场景。</p><div class="language-java vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">java</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">List&lt;</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">String</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&gt; names </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> new</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> ArrayList&lt;&gt;();</span></span>
+    <div id="app">
+      <!--[--><!--v-if--><!--v-if--><!--v-if--><!--[--><!--v-if--><!----><!--v-if-->
+      <div class="tk-right-bottom-button tk-wallpaper-outside flx-column">
+        <!--[--><!--]-->
+        <div
+          title="返回顶部"
+          class="tk-right-bottom-button__button back-top"
+          style="--tk-progress: 0; display: none"
+          role="button"
+          aria-label="返回顶部"
+          aria-valuenow="0"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          <span class="content">0</span>
+        </div>
+        <!--v-if--><!--v-if--><!--[--><!--]-->
+      </div>
+      <!--]-->
+      <div class="Layout tk-layout has-sidebar-trigger" data-v-9a104c51>
+        <!--[--><!--]--><!--[--><span tabindex="-1" data-v-0b0ada53></span
+        ><a href="#VPContent" class="VPSkipLink visually-hidden" data-v-0b0ada53
+          >Skip to content</a
+        ><!--]--><!---->
+        <header class="VPNav" data-v-9a104c51 data-v-ae24b3ad>
+          <div class="VPNavBar" data-v-ae24b3ad data-v-6aa21345>
+            <div class="wrapper" data-v-6aa21345>
+              <div class="container" data-v-6aa21345>
+                <div class="title" data-v-6aa21345>
+                  <div
+                    class="VPNavBarTitle has-sidebar"
+                    data-v-6aa21345
+                    data-v-1168a8e4
+                  >
+                    <a class="title" href="/raw-bits/" data-v-1168a8e4
+                      ><!--[--><!--]--><!--[--><img
+                        class="VPImage logo"
+                        src="/raw-bits/logo.svg"
+                        alt
+                        data-v-8426fc1a
+                      /><!--]--><span data-v-1168a8e4>Front Guide</span
+                      ><!--[--><!--]--></a
+                    >
+                  </div>
+                </div>
+                <div class="content" data-v-6aa21345>
+                  <div class="content-body" data-v-6aa21345>
+                    <!--[--><!--]-->
+                    <div class="VPNavBarSearch search" data-v-6aa21345>
+                      <!--[--><!---->
+                      <div id="local-search">
+                        <button
+                          type="button"
+                          class="DocSearch DocSearch-Button"
+                          aria-label="搜索文档"
+                        >
+                          <span class="DocSearch-Button-Container"
+                            ><span class="vp-icon DocSearch-Search-Icon"></span
+                            ><span class="DocSearch-Button-Placeholder"
+                              >搜索文档</span
+                            ></span
+                          ><span class="DocSearch-Button-Keys"
+                            ><kbd class="DocSearch-Button-Key"></kbd
+                            ><kbd class="DocSearch-Button-Key">K</kbd></span
+                          >
+                        </button>
+                      </div>
+                      <!--]-->
+                    </div>
+                    <nav
+                      aria-labelledby="main-nav-aria-label"
+                      class="VPNavBarMenu menu"
+                      data-v-6aa21345
+                      data-v-dc692963
+                    >
+                      <span
+                        id="main-nav-aria-label"
+                        class="visually-hidden"
+                        data-v-dc692963
+                      >
+                        Main Navigation </span
+                      ><!--[--><!--[--><a
+                        class="VPLink link VPNavBarMenuLink"
+                        href="/raw-bits/"
+                        tabindex="0"
+                        data-v-dc692963
+                        data-v-e56f3d57
+                        ><!--[--><span data-v-e56f3d57>首页</span
+                        ><!--]--></a
+                      ><!--]--><!--[--><a
+                        class="VPLink link VPNavBarMenuLink"
+                        href="/raw-bits/basic/"
+                        tabindex="0"
+                        data-v-dc692963
+                        data-v-e56f3d57
+                        ><!--[--><span data-v-e56f3d57>前端基础</span
+                        ><!--]--></a
+                      ><!--]--><!--[--><a
+                        class="VPLink link VPNavBarMenuLink"
+                        href="/raw-bits/javascript/"
+                        tabindex="0"
+                        data-v-dc692963
+                        data-v-e56f3d57
+                        ><!--[--><span data-v-e56f3d57>JavaScript</span
+                        ><!--]--></a
+                      ><!--]--><!--[--><a
+                        class="VPLink link VPNavBarMenuLink"
+                        href="/raw-bits/typescript/"
+                        tabindex="0"
+                        data-v-dc692963
+                        data-v-e56f3d57
+                        ><!--[--><span data-v-e56f3d57>TypeScript</span
+                        ><!--]--></a
+                      ><!--]--><!--[-->
+                      <div
+                        class="VPFlyout VPNavBarMenuGroup"
+                        data-v-dc692963
+                        data-v-cf11d7a2
+                      >
+                        <button
+                          type="button"
+                          class="button"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                          data-v-cf11d7a2
+                        >
+                          <span class="text" data-v-cf11d7a2
+                            ><!----><span data-v-cf11d7a2>Vue / React</span
+                            ><span
+                              class="vpi-chevron-down text-icon"
+                              data-v-cf11d7a2
+                            ></span
+                          ></span>
+                        </button>
+                        <div class="menu" data-v-cf11d7a2>
+                          <div class="VPMenu" data-v-cf11d7a2 data-v-b98bc113>
+                            <div class="items" data-v-b98bc113>
+                              <!--[--><!--[-->
+                              <div
+                                class="VPMenuLink"
+                                data-v-b98bc113
+                                data-v-35975db6
+                              >
+                                <a
+                                  class="VPLink link"
+                                  href="/raw-bits/vue/"
+                                  data-v-35975db6
+                                  ><!--[--><span data-v-35975db6>Vue</span
+                                  ><!--]--></a
+                                >
+                              </div>
+                              <!--]--><!--[-->
+                              <div
+                                class="VPMenuLink"
+                                data-v-b98bc113
+                                data-v-35975db6
+                              >
+                                <a
+                                  class="VPLink link"
+                                  href="/raw-bits/react/"
+                                  data-v-35975db6
+                                  ><!--[--><span data-v-35975db6>React</span
+                                  ><!--]--></a
+                                >
+                              </div>
+                              <!--]--><!--]-->
+                            </div>
+                            <!--[--><!--]-->
+                          </div>
+                        </div>
+                      </div>
+                      <!--]--><!--[--><a
+                        class="VPLink link VPNavBarMenuLink"
+                        href="/raw-bits/engineering/"
+                        tabindex="0"
+                        data-v-dc692963
+                        data-v-e56f3d57
+                        ><!--[--><span data-v-e56f3d57>工程化</span
+                        ><!--]--></a
+                      ><!--]--><!--[--><a
+                        class="VPLink link VPNavBarMenuLink"
+                        href="/raw-bits/browser/"
+                        tabindex="0"
+                        data-v-dc692963
+                        data-v-e56f3d57
+                        ><!--[--><span data-v-e56f3d57>浏览器</span
+                        ><!--]--></a
+                      ><!--]--><!--[-->
+                      <div
+                        class="VPFlyout VPNavBarMenuGroup"
+                        data-v-dc692963
+                        data-v-cf11d7a2
+                      >
+                        <button
+                          type="button"
+                          class="button"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                          data-v-cf11d7a2
+                        >
+                          <span class="text" data-v-cf11d7a2
+                            ><!----><span data-v-cf11d7a2>后端</span
+                            ><span
+                              class="vpi-chevron-down text-icon"
+                              data-v-cf11d7a2
+                            ></span
+                          ></span>
+                        </button>
+                        <div class="menu" data-v-cf11d7a2>
+                          <div class="VPMenu" data-v-cf11d7a2 data-v-b98bc113>
+                            <div class="items" data-v-b98bc113>
+                              <!--[--><!--[-->
+                              <div
+                                class="VPMenuLink"
+                                data-v-b98bc113
+                                data-v-35975db6
+                              >
+                                <a
+                                  class="VPLink link"
+                                  href="/raw-bits/backend/java/"
+                                  data-v-35975db6
+                                  ><!--[--><span data-v-35975db6>Java</span
+                                  ><!--]--></a
+                                >
+                              </div>
+                              <!--]--><!--[-->
+                              <div
+                                class="VPMenuLink"
+                                data-v-b98bc113
+                                data-v-35975db6
+                              >
+                                <a
+                                  class="VPLink link"
+                                  href="/raw-bits/backend/spring/"
+                                  data-v-35975db6
+                                  ><!--[--><span data-v-35975db6>Spring</span
+                                  ><!--]--></a
+                                >
+                              </div>
+                              <!--]--><!--[-->
+                              <div
+                                class="VPMenuLink"
+                                data-v-b98bc113
+                                data-v-35975db6
+                              >
+                                <a
+                                  class="VPLink link"
+                                  href="/raw-bits/backend/spring-boot/"
+                                  data-v-35975db6
+                                  ><!--[--><span data-v-35975db6
+                                    >Spring Boot</span
+                                  ><!--]--></a
+                                >
+                              </div>
+                              <!--]--><!--]-->
+                            </div>
+                            <!--[--><!--]-->
+                          </div>
+                        </div>
+                      </div>
+                      <!--]--><!--[--><a
+                        class="VPLink link VPNavBarMenuLink"
+                        href="/raw-bits/interview/"
+                        tabindex="0"
+                        data-v-dc692963
+                        data-v-e56f3d57
+                        ><!--[--><span data-v-e56f3d57>面试指南</span
+                        ><!--]--></a
+                      ><!--]--><!--[--><a
+                        class="VPLink link VPNavBarMenuLink"
+                        href="/raw-bits/roadmap/"
+                        tabindex="0"
+                        data-v-dc692963
+                        data-v-e56f3d57
+                        ><!--[--><span data-v-e56f3d57>学习路线</span
+                        ><!--]--></a
+                      ><!--]--><!--[--><a
+                        class="VPLink link vp-external-link-icon VPNavBarMenuLink"
+                        href="https://github.com/your-name/raw-bits"
+                        target="_blank"
+                        rel="noreferrer"
+                        tabindex="0"
+                        data-v-dc692963
+                        data-v-e56f3d57
+                        ><!--[--><span data-v-e56f3d57>GitHub</span
+                        ><!--]--></a
+                      ><!--]--><!--]-->
+                    </nav>
+                    <!---->
+                    <div
+                      class="VPNavBarAppearance appearance"
+                      data-v-6aa21345
+                      data-v-6c893767
+                    >
+                      <button
+                        class="VPSwitch VPSwitchAppearance"
+                        type="button"
+                        role="switch"
+                        title
+                        aria-checked="false"
+                        data-v-6c893767
+                        data-v-5337faa4
+                        data-v-1d5665e3
+                      >
+                        <span class="check" data-v-1d5665e3
+                          ><span class="icon" data-v-1d5665e3
+                            ><!--[--><span
+                              class="vpi-sun sun"
+                              data-v-5337faa4
+                            ></span
+                            ><span class="vpi-moon moon" data-v-5337faa4></span
+                            ><!--]--></span
+                          ></span
+                        >
+                      </button>
+                    </div>
+                    <div
+                      class="VPSocialLinks VPNavBarSocialLinks social-links"
+                      data-v-6aa21345
+                      data-v-0394ad82
+                      data-v-7bc22406
+                    >
+                      <!--[--><a
+                        class="VPSocialLink no-icon"
+                        href="https://github.com/your-name/raw-bits"
+                        aria-label="github"
+                        target="_blank"
+                        rel="noopener"
+                        data-v-7bc22406
+                        data-v-bd121fe5
+                        ><span class="vpi-social-github"></span></a
+                      ><!--]-->
+                    </div>
+                    <div
+                      class="VPFlyout VPNavBarExtra extra"
+                      data-v-6aa21345
+                      data-v-bb2aa2f0
+                      data-v-cf11d7a2
+                    >
+                      <button
+                        type="button"
+                        class="button"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        aria-label="extra navigation"
+                        data-v-cf11d7a2
+                      >
+                        <span
+                          class="vpi-more-horizontal icon"
+                          data-v-cf11d7a2
+                        ></span>
+                      </button>
+                      <div class="menu" data-v-cf11d7a2>
+                        <div class="VPMenu" data-v-cf11d7a2 data-v-b98bc113>
+                          <!----><!--[--><!--[--><!---->
+                          <div class="group" data-v-bb2aa2f0>
+                            <div class="item appearance" data-v-bb2aa2f0>
+                              <p class="label" data-v-bb2aa2f0>Appearance</p>
+                              <div class="appearance-action" data-v-bb2aa2f0>
+                                <button
+                                  class="VPSwitch VPSwitchAppearance"
+                                  type="button"
+                                  role="switch"
+                                  title
+                                  aria-checked="false"
+                                  data-v-bb2aa2f0
+                                  data-v-5337faa4
+                                  data-v-1d5665e3
+                                >
+                                  <span class="check" data-v-1d5665e3
+                                    ><span class="icon" data-v-1d5665e3
+                                      ><!--[--><span
+                                        class="vpi-sun sun"
+                                        data-v-5337faa4
+                                      ></span
+                                      ><span
+                                        class="vpi-moon moon"
+                                        data-v-5337faa4
+                                      ></span
+                                      ><!--]--></span
+                                    ></span
+                                  >
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="group" data-v-bb2aa2f0>
+                            <div class="item social-links" data-v-bb2aa2f0>
+                              <div
+                                class="VPSocialLinks social-links-list"
+                                data-v-bb2aa2f0
+                                data-v-7bc22406
+                              >
+                                <!--[--><a
+                                  class="VPSocialLink no-icon"
+                                  href="https://github.com/your-name/raw-bits"
+                                  aria-label="github"
+                                  target="_blank"
+                                  rel="noopener"
+                                  data-v-7bc22406
+                                  data-v-bd121fe5
+                                  ><span class="vpi-social-github"></span></a
+                                ><!--]-->
+                              </div>
+                            </div>
+                          </div>
+                          <!--]--><!--]-->
+                        </div>
+                      </div>
+                    </div>
+                    <!--[--><!--[--><!--[--><!--[--><!--]--><!--[-->
+                    <div class="tk-theme-enhance flx-align-center">
+                      <!--[--><i
+                        class="tk-icon"
+                        style="
+                          --icon-size: 20px;
+                          --icon-color-hover: var(--tk-theme-color);
+                        "
+                        ><svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 1024 1024"
+                        >
+                          <path
+                            fill="currentColor"
+                            d="m512 863.36 384-54.848v-638.72L525.568 222.72a96 96 0 0 1-27.136 0L128 169.792v638.72zM137.024 106.432l370.432 52.928a32 32 0 0 0 9.088 0l370.432-52.928A64 64 0 0 1 960 169.792v638.72a64 64 0 0 1-54.976 63.36l-388.48 55.488a32 32 0 0 1-9.088 0l-388.48-55.488A64 64 0 0 1 64 808.512v-638.72a64 64 0 0 1 73.024-63.36z"
+                          ></path>
+                          <path
+                            fill="currentColor"
+                            d="M480 192h64v704h-64z"
+                          ></path></svg></i
+                      ><!--]-->
+                    </div>
+                    <!--teleport start--><!--teleport end--><!--]--><!--]--><!--]--><!--]--><button
+                      type="button"
+                      class="VPNavBarHamburger hamburger"
+                      aria-label="mobile navigation"
+                      aria-expanded="false"
+                      aria-controls="VPNavScreen"
+                      data-v-6aa21345
+                      data-v-e5dd9c1c
+                    >
+                      <span class="container" data-v-e5dd9c1c
+                        ><span class="top" data-v-e5dd9c1c></span
+                        ><span class="middle" data-v-e5dd9c1c></span
+                        ><span class="bottom" data-v-e5dd9c1c></span
+                      ></span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="divider" data-v-6aa21345>
+              <div class="divider-line" data-v-6aa21345></div>
+            </div>
+          </div>
+          <!---->
+        </header>
+        <div
+          class="VPLocalNav has-sidebar empty"
+          data-v-9a104c51
+          data-v-a6f0e41e
+        >
+          <div class="container" data-v-a6f0e41e>
+            <button
+              class="menu"
+              aria-expanded="false"
+              aria-controls="VPSidebarNav"
+              data-v-a6f0e41e
+            >
+              <span class="vpi-align-left menu-icon" data-v-a6f0e41e></span
+              ><span class="menu-text" data-v-a6f0e41e>Menu</span>
+            </button>
+            <div
+              class="VPLocalNavOutlineDropdown"
+              style="--vp-vh: 0px"
+              data-v-a6f0e41e
+              data-v-8a42e2b4
+            >
+              <button data-v-8a42e2b4>Return to top</button
+              ><!---->
+            </div>
+          </div>
+        </div>
+        <aside class="VPSidebar" data-v-9a104c51 data-v-319d5ca6>
+          <div class="curtain" data-v-319d5ca6></div>
+          <nav
+            class="nav"
+            id="VPSidebarNav"
+            aria-labelledby="sidebar-aria-label"
+            tabindex="-1"
+            data-v-319d5ca6
+          >
+            <span
+              class="visually-hidden"
+              id="sidebar-aria-label"
+              data-v-319d5ca6
+            >
+              Sidebar Navigation </span
+            ><!--[--><!--[--><!--v-if--><!--]--><!--]--><!--[-->
+            <div class="no-transition group" data-v-c40bc020>
+              <section
+                class="VPSidebarItem level-0 has-active"
+                data-v-c40bc020
+                data-v-b3fd67f8
+              >
+                <div class="item" role="button" tabindex="0" data-v-b3fd67f8>
+                  <div class="indicator" data-v-b3fd67f8></div>
+                  <h2 class="text" data-v-b3fd67f8>后端模块</h2>
+                  <!---->
+                </div>
+                <div class="items" data-v-b3fd67f8>
+                  <!--[-->
+                  <div
+                    class="VPSidebarItem level-1 is-link"
+                    data-v-b3fd67f8
+                    data-v-b3fd67f8
+                  >
+                    <div class="item" data-v-b3fd67f8>
+                      <div class="indicator" data-v-b3fd67f8></div>
+                      <a
+                        class="VPLink link link"
+                        href="/raw-bits/backend/"
+                        data-v-b3fd67f8
+                        ><!--[-->
+                        <p class="text" data-v-b3fd67f8>概览</p>
+                        <!--]--></a
+                      ><!---->
+                    </div>
+                    <!---->
+                  </div>
+                  <section
+                    class="VPSidebarItem level-1 collapsible is-link has-active"
+                    data-v-b3fd67f8
+                    data-v-b3fd67f8
+                  >
+                    <div class="item" tabindex="0" data-v-b3fd67f8>
+                      <div class="indicator" data-v-b3fd67f8></div>
+                      <a
+                        class="VPLink link link"
+                        href="/raw-bits/backend/java/"
+                        data-v-b3fd67f8
+                        ><!--[-->
+                        <h3 class="text" data-v-b3fd67f8>Java</h3>
+                        <!--]--></a
+                      >
+                      <div
+                        class="caret"
+                        role="button"
+                        aria-label="toggle section"
+                        tabindex="0"
+                        data-v-b3fd67f8
+                      >
+                        <span
+                          class="vpi-chevron-right caret-icon"
+                          data-v-b3fd67f8
+                        ></span>
+                      </div>
+                    </div>
+                    <div class="items" data-v-b3fd67f8>
+                      <!--[-->
+                      <div
+                        class="VPSidebarItem level-2 is-link"
+                        data-v-b3fd67f8
+                        data-v-b3fd67f8
+                      >
+                        <div class="item" data-v-b3fd67f8>
+                          <div class="indicator" data-v-b3fd67f8></div>
+                          <a
+                            class="VPLink link link"
+                            href="/raw-bits/backend/java/"
+                            data-v-b3fd67f8
+                            ><!--[-->
+                            <p class="text" data-v-b3fd67f8>Java 概览</p>
+                            <!--]--></a
+                          ><!---->
+                        </div>
+                        <!---->
+                      </div>
+                      <div
+                        class="VPSidebarItem level-2 is-link"
+                        data-v-b3fd67f8
+                        data-v-b3fd67f8
+                      >
+                        <div class="item" data-v-b3fd67f8>
+                          <div class="indicator" data-v-b3fd67f8></div>
+                          <a
+                            class="VPLink link link"
+                            href="/raw-bits/backend/java/basic-syntax"
+                            data-v-b3fd67f8
+                            ><!--[-->
+                            <p class="text" data-v-b3fd67f8>基础语法</p>
+                            <!--]--></a
+                          ><!---->
+                        </div>
+                        <!---->
+                      </div>
+                      <div
+                        class="VPSidebarItem level-2 is-link"
+                        data-v-b3fd67f8
+                        data-v-b3fd67f8
+                      >
+                        <div class="item" data-v-b3fd67f8>
+                          <div class="indicator" data-v-b3fd67f8></div>
+                          <a
+                            class="VPLink link link"
+                            href="/raw-bits/backend/java/oop"
+                            data-v-b3fd67f8
+                            ><!--[-->
+                            <p class="text" data-v-b3fd67f8>面向对象</p>
+                            <!--]--></a
+                          ><!---->
+                        </div>
+                        <!---->
+                      </div>
+                      <div
+                        class="VPSidebarItem level-2 is-link"
+                        data-v-b3fd67f8
+                        data-v-b3fd67f8
+                      >
+                        <div class="item" data-v-b3fd67f8>
+                          <div class="indicator" data-v-b3fd67f8></div>
+                          <a
+                            class="VPLink link link"
+                            href="/raw-bits/backend/java/collections"
+                            data-v-b3fd67f8
+                            ><!--[-->
+                            <p class="text" data-v-b3fd67f8>集合框架</p>
+                            <!--]--></a
+                          ><!---->
+                        </div>
+                        <!---->
+                      </div>
+                      <div
+                        class="VPSidebarItem level-2 is-link"
+                        data-v-b3fd67f8
+                        data-v-b3fd67f8
+                      >
+                        <div class="item" data-v-b3fd67f8>
+                          <div class="indicator" data-v-b3fd67f8></div>
+                          <a
+                            class="VPLink link link"
+                            href="/raw-bits/backend/java/exception"
+                            data-v-b3fd67f8
+                            ><!--[-->
+                            <p class="text" data-v-b3fd67f8>异常处理</p>
+                            <!--]--></a
+                          ><!---->
+                        </div>
+                        <!---->
+                      </div>
+                      <div
+                        class="VPSidebarItem level-2 is-link"
+                        data-v-b3fd67f8
+                        data-v-b3fd67f8
+                      >
+                        <div class="item" data-v-b3fd67f8>
+                          <div class="indicator" data-v-b3fd67f8></div>
+                          <a
+                            class="VPLink link link"
+                            href="/raw-bits/backend/java/concurrency"
+                            data-v-b3fd67f8
+                            ><!--[-->
+                            <p class="text" data-v-b3fd67f8>并发编程</p>
+                            <!--]--></a
+                          ><!---->
+                        </div>
+                        <!---->
+                      </div>
+                      <div
+                        class="VPSidebarItem level-2 is-link"
+                        data-v-b3fd67f8
+                        data-v-b3fd67f8
+                      >
+                        <div class="item" data-v-b3fd67f8>
+                          <div class="indicator" data-v-b3fd67f8></div>
+                          <a
+                            class="VPLink link link"
+                            href="/raw-bits/backend/java/jvm"
+                            data-v-b3fd67f8
+                            ><!--[-->
+                            <p class="text" data-v-b3fd67f8>JVM 基础</p>
+                            <!--]--></a
+                          ><!---->
+                        </div>
+                        <!---->
+                      </div>
+                      <!--]-->
+                    </div>
+                  </section>
+                  <section
+                    class="VPSidebarItem level-1 collapsible is-link"
+                    data-v-b3fd67f8
+                    data-v-b3fd67f8
+                  >
+                    <div class="item" tabindex="0" data-v-b3fd67f8>
+                      <div class="indicator" data-v-b3fd67f8></div>
+                      <a
+                        class="VPLink link link"
+                        href="/raw-bits/backend/spring/"
+                        data-v-b3fd67f8
+                        ><!--[-->
+                        <h3 class="text" data-v-b3fd67f8>Spring</h3>
+                        <!--]--></a
+                      >
+                      <div
+                        class="caret"
+                        role="button"
+                        aria-label="toggle section"
+                        tabindex="0"
+                        data-v-b3fd67f8
+                      >
+                        <span
+                          class="vpi-chevron-right caret-icon"
+                          data-v-b3fd67f8
+                        ></span>
+                      </div>
+                    </div>
+                    <div class="items" data-v-b3fd67f8>
+                      <!--[-->
+                      <div
+                        class="VPSidebarItem level-2 is-link"
+                        data-v-b3fd67f8
+                        data-v-b3fd67f8
+                      >
+                        <div class="item" data-v-b3fd67f8>
+                          <div class="indicator" data-v-b3fd67f8></div>
+                          <a
+                            class="VPLink link link"
+                            href="/raw-bits/backend/spring/"
+                            data-v-b3fd67f8
+                            ><!--[-->
+                            <p class="text" data-v-b3fd67f8>Spring 概览</p>
+                            <!--]--></a
+                          ><!---->
+                        </div>
+                        <!---->
+                      </div>
+                      <div
+                        class="VPSidebarItem level-2 is-link"
+                        data-v-b3fd67f8
+                        data-v-b3fd67f8
+                      >
+                        <div class="item" data-v-b3fd67f8>
+                          <div class="indicator" data-v-b3fd67f8></div>
+                          <a
+                            class="VPLink link link"
+                            href="/raw-bits/backend/spring/ioc"
+                            data-v-b3fd67f8
+                            ><!--[-->
+                            <p class="text" data-v-b3fd67f8>IoC 与 DI</p>
+                            <!--]--></a
+                          ><!---->
+                        </div>
+                        <!---->
+                      </div>
+                      <div
+                        class="VPSidebarItem level-2 is-link"
+                        data-v-b3fd67f8
+                        data-v-b3fd67f8
+                      >
+                        <div class="item" data-v-b3fd67f8>
+                          <div class="indicator" data-v-b3fd67f8></div>
+                          <a
+                            class="VPLink link link"
+                            href="/raw-bits/backend/spring/bean-lifecycle"
+                            data-v-b3fd67f8
+                            ><!--[-->
+                            <p class="text" data-v-b3fd67f8>Bean 生命周期</p>
+                            <!--]--></a
+                          ><!---->
+                        </div>
+                        <!---->
+                      </div>
+                      <div
+                        class="VPSidebarItem level-2 is-link"
+                        data-v-b3fd67f8
+                        data-v-b3fd67f8
+                      >
+                        <div class="item" data-v-b3fd67f8>
+                          <div class="indicator" data-v-b3fd67f8></div>
+                          <a
+                            class="VPLink link link"
+                            href="/raw-bits/backend/spring/aop"
+                            data-v-b3fd67f8
+                            ><!--[-->
+                            <p class="text" data-v-b3fd67f8>AOP</p>
+                            <!--]--></a
+                          ><!---->
+                        </div>
+                        <!---->
+                      </div>
+                      <div
+                        class="VPSidebarItem level-2 is-link"
+                        data-v-b3fd67f8
+                        data-v-b3fd67f8
+                      >
+                        <div class="item" data-v-b3fd67f8>
+                          <div class="indicator" data-v-b3fd67f8></div>
+                          <a
+                            class="VPLink link link"
+                            href="/raw-bits/backend/spring/transaction"
+                            data-v-b3fd67f8
+                            ><!--[-->
+                            <p class="text" data-v-b3fd67f8>声明式事务</p>
+                            <!--]--></a
+                          ><!---->
+                        </div>
+                        <!---->
+                      </div>
+                      <div
+                        class="VPSidebarItem level-2 is-link"
+                        data-v-b3fd67f8
+                        data-v-b3fd67f8
+                      >
+                        <div class="item" data-v-b3fd67f8>
+                          <div class="indicator" data-v-b3fd67f8></div>
+                          <a
+                            class="VPLink link link"
+                            href="/raw-bits/backend/spring/mvc"
+                            data-v-b3fd67f8
+                            ><!--[-->
+                            <p class="text" data-v-b3fd67f8>Spring MVC</p>
+                            <!--]--></a
+                          ><!---->
+                        </div>
+                        <!---->
+                      </div>
+                      <!--]-->
+                    </div>
+                  </section>
+                  <section
+                    class="VPSidebarItem level-1 collapsible is-link"
+                    data-v-b3fd67f8
+                    data-v-b3fd67f8
+                  >
+                    <div class="item" tabindex="0" data-v-b3fd67f8>
+                      <div class="indicator" data-v-b3fd67f8></div>
+                      <a
+                        class="VPLink link link"
+                        href="/raw-bits/backend/spring-boot/"
+                        data-v-b3fd67f8
+                        ><!--[-->
+                        <h3 class="text" data-v-b3fd67f8>Spring Boot</h3>
+                        <!--]--></a
+                      >
+                      <div
+                        class="caret"
+                        role="button"
+                        aria-label="toggle section"
+                        tabindex="0"
+                        data-v-b3fd67f8
+                      >
+                        <span
+                          class="vpi-chevron-right caret-icon"
+                          data-v-b3fd67f8
+                        ></span>
+                      </div>
+                    </div>
+                    <div class="items" data-v-b3fd67f8>
+                      <!--[-->
+                      <div
+                        class="VPSidebarItem level-2 is-link"
+                        data-v-b3fd67f8
+                        data-v-b3fd67f8
+                      >
+                        <div class="item" data-v-b3fd67f8>
+                          <div class="indicator" data-v-b3fd67f8></div>
+                          <a
+                            class="VPLink link link"
+                            href="/raw-bits/backend/spring-boot/"
+                            data-v-b3fd67f8
+                            ><!--[-->
+                            <p class="text" data-v-b3fd67f8>Spring Boot 概览</p>
+                            <!--]--></a
+                          ><!---->
+                        </div>
+                        <!---->
+                      </div>
+                      <div
+                        class="VPSidebarItem level-2 is-link"
+                        data-v-b3fd67f8
+                        data-v-b3fd67f8
+                      >
+                        <div class="item" data-v-b3fd67f8>
+                          <div class="indicator" data-v-b3fd67f8></div>
+                          <a
+                            class="VPLink link link"
+                            href="/raw-bits/backend/spring-boot/auto-configuration"
+                            data-v-b3fd67f8
+                            ><!--[-->
+                            <p class="text" data-v-b3fd67f8>自动配置</p>
+                            <!--]--></a
+                          ><!---->
+                        </div>
+                        <!---->
+                      </div>
+                      <div
+                        class="VPSidebarItem level-2 is-link"
+                        data-v-b3fd67f8
+                        data-v-b3fd67f8
+                      >
+                        <div class="item" data-v-b3fd67f8>
+                          <div class="indicator" data-v-b3fd67f8></div>
+                          <a
+                            class="VPLink link link"
+                            href="/raw-bits/backend/spring-boot/starter"
+                            data-v-b3fd67f8
+                            ><!--[-->
+                            <p class="text" data-v-b3fd67f8>Starter</p>
+                            <!--]--></a
+                          ><!---->
+                        </div>
+                        <!---->
+                      </div>
+                      <div
+                        class="VPSidebarItem level-2 is-link"
+                        data-v-b3fd67f8
+                        data-v-b3fd67f8
+                      >
+                        <div class="item" data-v-b3fd67f8>
+                          <div class="indicator" data-v-b3fd67f8></div>
+                          <a
+                            class="VPLink link link"
+                            href="/raw-bits/backend/spring-boot/configuration"
+                            data-v-b3fd67f8
+                            ><!--[-->
+                            <p class="text" data-v-b3fd67f8>配置管理</p>
+                            <!--]--></a
+                          ><!---->
+                        </div>
+                        <!---->
+                      </div>
+                      <div
+                        class="VPSidebarItem level-2 is-link"
+                        data-v-b3fd67f8
+                        data-v-b3fd67f8
+                      >
+                        <div class="item" data-v-b3fd67f8>
+                          <div class="indicator" data-v-b3fd67f8></div>
+                          <a
+                            class="VPLink link link"
+                            href="/raw-bits/backend/spring-boot/web-api"
+                            data-v-b3fd67f8
+                            ><!--[-->
+                            <p class="text" data-v-b3fd67f8>Web 接口</p>
+                            <!--]--></a
+                          ><!---->
+                        </div>
+                        <!---->
+                      </div>
+                      <div
+                        class="VPSidebarItem level-2 is-link"
+                        data-v-b3fd67f8
+                        data-v-b3fd67f8
+                      >
+                        <div class="item" data-v-b3fd67f8>
+                          <div class="indicator" data-v-b3fd67f8></div>
+                          <a
+                            class="VPLink link link"
+                            href="/raw-bits/backend/spring-boot/data-access"
+                            data-v-b3fd67f8
+                            ><!--[-->
+                            <p class="text" data-v-b3fd67f8>数据访问</p>
+                            <!--]--></a
+                          ><!---->
+                        </div>
+                        <!---->
+                      </div>
+                      <div
+                        class="VPSidebarItem level-2 is-link"
+                        data-v-b3fd67f8
+                        data-v-b3fd67f8
+                      >
+                        <div class="item" data-v-b3fd67f8>
+                          <div class="indicator" data-v-b3fd67f8></div>
+                          <a
+                            class="VPLink link link"
+                            href="/raw-bits/backend/spring-boot/actuator"
+                            data-v-b3fd67f8
+                            ><!--[-->
+                            <p class="text" data-v-b3fd67f8>Actuator</p>
+                            <!--]--></a
+                          ><!---->
+                        </div>
+                        <!---->
+                      </div>
+                      <!--]-->
+                    </div>
+                  </section>
+                  <!--]-->
+                </div>
+              </section>
+            </div>
+            <!--]--><!--[--><!--]-->
+          </nav>
+        </aside>
+        <div
+          class="VPContent has-sidebar"
+          id="VPContent"
+          data-v-9a104c51
+          data-v-1428d186
+        >
+          <div
+            class="VPDoc has-sidebar has-aside"
+            data-v-1428d186
+            data-v-39a288b8
+          >
+            <!--[--><!--]-->
+            <div class="container" data-v-39a288b8>
+              <div class="aside" data-v-39a288b8>
+                <div class="aside-curtain" data-v-39a288b8></div>
+                <div class="aside-container" data-v-39a288b8>
+                  <div class="aside-content" data-v-39a288b8>
+                    <div class="VPDocAside" data-v-39a288b8 data-v-3f215769>
+                      <!--[--><!--]--><!--[--><!--[--><!--[--><!--[--><!--[--><!--[--><!--]-->
+                      <div class="tk-article-share">
+                        <button
+                          class="tk-article-share__button flx-center"
+                          aria-label="分享此页面"
+                          aria-live="polite"
+                        >
+                          <div class="flx-center">
+                            <i
+                              class="tk-icon"
+                              style="
+                                margin-right: 4px;
+                                --icon-color-hover: var(--tk-theme-color);
+                              "
+                              ><svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                aria-hidden="true"
+                                role="img"
+                                class="iconify iconify iconify--solar"
+                                alt="Icon"
+                                width="1em"
+                                height="1em"
+                                viewBox="0 0 24 24"
+                                style="vertical-align: -0.125em"
+                              >
+                                <path
+                                  fill="currentColor"
+                                  fill-rule="evenodd"
+                                  d="M13.803 5.333c0-1.84 1.5-3.333 3.348-3.333A3.34 3.34 0 0 1 20.5 5.333c0 1.841-1.5 3.334-3.349 3.334a3.35 3.35 0 0 1-2.384-.994l-4.635 3.156a3.34 3.34 0 0 1-.182 1.917l5.082 3.34a3.35 3.35 0 0 1 2.12-.753a3.34 3.34 0 0 1 3.348 3.334C20.5 20.507 19 22 17.151 22a3.34 3.34 0 0 1-3.348-3.333a3.3 3.3 0 0 1 .289-1.356L9.05 14a3.35 3.35 0 0 1-2.202.821A3.34 3.34 0 0 1 3.5 11.487a3.34 3.34 0 0 1 3.348-3.333c1.064 0 2.01.493 2.623 1.261l4.493-3.059a3.3 3.3 0 0 1-.161-1.023"
+                                  clip-rule="evenodd"
+                                ></path></svg
+                            ></i>
+                            分享此页面
+                          </div>
+                        </button>
+                      </div>
+                      <!--[--><!--]--><!--]--><!--[--><!--]--><!--]--><!--]--><!--]--><!--]-->
+                      <nav
+                        aria-labelledby="doc-outline-aria-label"
+                        class="VPDocAsideOutline"
+                        data-v-3f215769
+                        data-v-a5bbad30
+                      >
+                        <div class="content" data-v-a5bbad30>
+                          <div class="outline-marker" data-v-a5bbad30></div>
+                          <div
+                            aria-level="2"
+                            class="outline-title"
+                            id="doc-outline-aria-label"
+                            role="heading"
+                            data-v-a5bbad30
+                          >
+                            本页目录
+                          </div>
+                          <ul
+                            class="VPDocOutlineItem root"
+                            data-v-a5bbad30
+                            data-v-b933a997
+                          >
+                            <!--[--><!--]-->
+                          </ul>
+                        </div>
+                      </nav>
+                      <!--[--><!--]-->
+                      <div class="spacer" data-v-3f215769></div>
+                      <!--[--><!--]--><!----><!--[--><!--]--><!--[--><!--]-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="content" data-v-39a288b8>
+                <div class="content-container" data-v-39a288b8>
+                  <!--[--><!--[--><!--[--><!--[--><!--]--><!--[--><!--[--><!--]-->
+                  <div
+                    class="tk-article-analyze flx-justify-between"
+                    aria-label="文章分析"
+                  >
+                    <div
+                      class="tk-article-breadcrumb"
+                      role="navigation"
+                      aria-label="文章面包屑"
+                    >
+                      <div
+                        class="tk-breadcrumb"
+                        role="navigation"
+                        aria-label="面包屑"
+                      >
+                        <!--[--><span class="tk-breadcrumb__item"
+                          ><span class="tk-breadcrumb__inner" role="link"
+                            ><!--[--><a
+                              href="/raw-bits/"
+                              title="首页"
+                              class="home hover-color"
+                              aria-label="首页"
+                              ><i
+                                class="tk-icon"
+                                style="
+                                  --icon-color-hover: var(--tk-theme-color);
+                                "
+                                aria-hidden="true"
+                                ><svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 1024 1024"
+                                >
+                                  <path
+                                    fill="currentColor"
+                                    d="M192 413.952V896h640V413.952L512 147.328zM139.52 374.4l352-293.312a32 32 0 0 1 40.96 0l352 293.312A32 32 0 0 1 896 398.976V928a32 32 0 0 1-32 32H160a32 32 0 0 1-32-32V398.976a32 32 0 0 1 11.52-24.576"
+                                  ></path></svg></i></a
+                            ><!--]--></span
+                          ><span
+                            class="tk-breadcrumb__separator"
+                            role="presentation"
+                            >/</span
+                          ></span
+                        ><!--[--><span class="tk-breadcrumb__item"
+                          ><span class="tk-breadcrumb__inner" role="link"
+                            ><!--[--><span
+                              href
+                              title="backend"
+                              class=""
+                              aria-label="backend"
+                              >backend</span
+                            ><!--]--></span
+                          ><span
+                            class="tk-breadcrumb__separator"
+                            role="presentation"
+                            >/</span
+                          ></span
+                        ><span class="tk-breadcrumb__item"
+                          ><span class="tk-breadcrumb__inner" role="link"
+                            ><!--[--><span
+                              href
+                              title="java"
+                              class=""
+                              aria-label="java"
+                              >java</span
+                            ><!--]--></span
+                          ><span
+                            class="tk-breadcrumb__separator"
+                            role="presentation"
+                            >/</span
+                          ></span
+                        ><span class="tk-breadcrumb__item"
+                          ><span class="tk-breadcrumb__inner" role="link"
+                            ><!--[--><span
+                              href
+                              title="collections"
+                              class=""
+                              aria-label="collections"
+                              >collections</span
+                            ><!--]--></span
+                          ><span
+                            class="tk-breadcrumb__separator"
+                            role="presentation"
+                            >/</span
+                          ></span
+                        ><!--]--><!--]-->
+                      </div>
+                    </div>
+                    <!--v-if-->
+                  </div>
+                  <!--[--><!--]--><!--]--><!----><!----><!----><!--v-if--><!--[-->
+                  <div
+                    class="tk-sidebar-trigger"
+                    title="侧边栏展开/折叠"
+                    role="button"
+                    aria-label="侧边栏展开/折叠"
+                  >
+                    <div class="tk-right-bottom-button__button">
+                      <i
+                        class="tk-icon"
+                        style="--icon-color-hover: var(--tk-theme-color)"
+                        aria-hidden="true"
+                        ><svg
+                          viewBox="0 0 48 48"
+                          display="inline-block"
+                          vertical-align="middle"
+                          min-width="1.2rem"
+                          width="1.2em"
+                          height="1.2em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <g
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-width="4"
+                          >
+                            <path d="M6 7h36M8 24h32" />
+                            <path
+                              stroke-linejoin="round"
+                              d="M13.99 30L8 24.005L14 18m20.01 0L40 23.995L34 30"
+                            />
+                            <path d="M6 41h36" />
+                          </g></svg
+                      ></i>
+                    </div>
+                  </div>
+                  <!--]--><!--]--><!--]--><!--]-->
+                  <main class="main" data-v-39a288b8>
+                    <div
+                      style="position: relative"
+                      class="vp-doc _raw-bits_backend_java_collections"
+                      data-v-39a288b8
+                    >
+                      <div>
+                        <h1 id="java-集合框架" tabindex="-1">
+                          Java 集合框架
+                          <a
+                            class="header-anchor"
+                            href="#java-集合框架"
+                            aria-label='Permalink to "Java 集合框架"'
+                            >​</a
+                          >
+                        </h1>
+                        <p>
+                          集合用于保存和处理一组对象，是 Java
+                          后端代码中最高频的基础工具之一。
+                        </p>
+                        <h2 id="常见集合类型" tabindex="-1">
+                          常见集合类型
+                          <a
+                            class="header-anchor"
+                            href="#常见集合类型"
+                            aria-label='Permalink to "常见集合类型"'
+                            >​</a
+                          >
+                        </h2>
+                        <table tabindex="0">
+                          <thead>
+                            <tr>
+                              <th>接口</th>
+                              <th>常见实现</th>
+                              <th>特点</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td><code>List</code></td>
+                              <td>
+                                <code>ArrayList</code>、<code>LinkedList</code>
+                              </td>
+                              <td>有序、可重复</td>
+                            </tr>
+                            <tr>
+                              <td><code>Set</code></td>
+                              <td>
+                                <code>HashSet</code>、<code>TreeSet</code>
+                              </td>
+                              <td>去重</td>
+                            </tr>
+                            <tr>
+                              <td><code>Map</code></td>
+                              <td>
+                                <code>HashMap</code>、<code>TreeMap</code>
+                              </td>
+                              <td>键值映射</td>
+                            </tr>
+                            <tr>
+                              <td><code>Queue</code></td>
+                              <td>
+                                <code>ArrayDeque</code>、<code
+                                  >PriorityQueue</code
+                                >
+                              </td>
+                              <td>队列或优先级处理</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <p>
+                          选择集合时，先看业务需要：是否有序、是否去重、是否按
+                          key 查询、是否需要线程安全。
+                        </p>
+                        <h2 id="list" tabindex="-1">
+                          List
+                          <a
+                            class="header-anchor"
+                            href="#list"
+                            aria-label='Permalink to "List"'
+                            >​</a
+                          >
+                        </h2>
+                        <p>
+                          <code>ArrayList</code>
+                          适合大多数按顺序保存数据的场景。
+                        </p>
+                        <div class="language-java vp-adaptive-theme">
+                          <button title="Copy Code" class="copy"></button
+                          ><span class="lang">java</span>
+                          <pre
+                            class="shiki shiki-themes github-light github-dark vp-code"
+                            tabindex="0"
+                          ><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">List&lt;</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">String</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&gt; names </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> new</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> ArrayList&lt;&gt;();</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">names.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">add</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;alice&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">);</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">names.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">add</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;bob&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">);</span></span></code></pre></div><p>如果频繁按下标访问，<code>ArrayList</code> 通常更合适。如果频繁在中间插入，也要结合实际数据量评估。</p><h2 id="set" tabindex="-1">Set <a class="header-anchor" href="#set" aria-label="Permalink to &quot;Set&quot;">​</a></h2><p><code>Set</code> 用于去重，依赖对象的 <code>equals</code> 和 <code>hashCode</code>。</p><div class="language-java vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">java</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">Set&lt;</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">Long</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&gt; userIds </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> new</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> HashSet&lt;&gt;();</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">userIds.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">add</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">1L</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">);</span></span></code></pre></div><p>自定义对象放入 <code>HashSet</code> 时，必须正确实现相等逻辑。</p><h2 id="map" tabindex="-1">Map <a class="header-anchor" href="#map" aria-label="Permalink to &quot;Map&quot;">​</a></h2><p><code>Map</code> 用于通过 key 快速找到 value。</p><div class="language-java vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">java</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">Map&lt;</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">Long</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">String</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&gt; userNameMap </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> new</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> HashMap&lt;&gt;();</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">userNameMap.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">put</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">1L</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;alice&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">);</span></span></code></pre></div><p><code>HashMap</code> 不是线程安全的，并发场景要考虑 <code>ConcurrentHashMap</code> 或外部同步。</p><h2 id="总结" tabindex="-1">总结 <a class="header-anchor" href="#总结" aria-label="Permalink to &quot;总结&quot;">​</a></h2><p>集合选择没有固定答案。理解集合的语义和性能特点，再根据业务访问方式选择，才是可靠的做法。</p></div></div></main><footer class="VPDocFooter" data-v-39a288b8 data-v-e257564d><!--[--><!--]--><div class="edit-info" data-v-e257564d><div class="edit-link" data-v-e257564d><a class="VPLink link vp-external-link-icon no-icon edit-link-button" href="https://github.com/your-name/front-guide/edit/main/docs/backend/java/collections.md" target="_blank" rel="noreferrer" data-v-e257564d><!--[--><span class="vpi-square-pen edit-link-icon" data-v-e257564d></span> 在 GitHub 上编辑此页<!--]--></a></div><div class="last-updated" data-v-e257564d><p class="VPLastUpdated" data-v-e257564d data-v-e98dd255>最后更新: <time datetime="2026-06-08T12:47:31.000Z" data-v-e98dd255></time></p></div></div><nav class="prev-next" aria-labelledby="doc-footer-aria-label" data-v-e257564d><span class="visually-hidden" id="doc-footer-aria-label" data-v-e257564d>Pager</span><div class="pager" data-v-e257564d><a class="VPLink link pager-link prev" href="/front-guide/backend/java/oop" data-v-e257564d><!--[--><span class="desc" data-v-e257564d>上一篇</span><span class="title" data-v-e257564d>面向对象</span><!--]--></a></div><div class="pager" data-v-e257564d><a class="VPLink link pager-link next" href="/front-guide/backend/java/exception" data-v-e257564d><!--[--><span class="desc" data-v-e257564d>下一篇</span><span class="title" data-v-e257564d>异常处理</span><!--]--></a></div></nav></footer><!--[--><!--[--><!--[--><!--[--><!--]--><!--[--><!--[--><!--]--><div class="tk-article-update"><div class="tk-article-update__title flx-align-center"><i class="tk-icon edit-icon" style="--icon-color-hover:var(--tk-theme-color);" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
-    <path
-      fill="currentColor"
-      d="m199.04 672.64 193.984 112 224-387.968-193.92-112-224 388.032zm-23.872 60.16 32.896 148.288 144.896-45.696zM455.04 229.248l193.92 112 56.704-98.112-193.984-112-56.64 98.112zM104.32 708.8l384-665.024 304.768 175.936L409.152 884.8h.064l-248.448 78.336zm384 254.272v-64h448v64h-448z"
-    ></path>
-  </svg></i><span>最近更新</span></div><ul><!--[--><li class="flx-center"><span class="tk-article-update--num" aria-hidden="true">01</span><div class="tk-article-update__content"><a href="/front-guide/backend/spring-boot/actuator" class="flx-1 hover-color sle" aria-label="Spring Boot Actuator"><span class="tk-article-title" aria-label="文章标题"><!--v-if--><!--[--><!--[-->Spring Boot Actuator<!--]--><!--]--><!--v-if--></span></a><span class="tk-article-update__content--date">2026-06-08 12:35:12</span></div></li><li class="flx-center"><span class="tk-article-update--num" aria-hidden="true">02</span><div class="tk-article-update__content"><a href="/front-guide/backend/spring-boot/data-access" class="flx-1 hover-color sle" aria-label="Spring Boot 数据访问"><span class="tk-article-title" aria-label="文章标题"><!--v-if--><!--[--><!--[-->Spring Boot 数据访问<!--]--><!--]--><!--v-if--></span></a><span class="tk-article-update__content--date">2026-06-08 12:35:12</span></div></li><li class="flx-center"><span class="tk-article-update--num" aria-hidden="true">03</span><div class="tk-article-update__content"><a href="/front-guide/backend/spring-boot/auto-configuration" class="flx-1 hover-color sle" aria-label="Spring Boot 自动配置"><span class="tk-article-title" aria-label="文章标题"><!--v-if--><!--[--><!--[-->Spring Boot 自动配置<!--]--><!--]--><!--v-if--></span></a><span class="tk-article-update__content--date">2026-06-08 12:35:11</span></div></li><li class="flx-center"><span class="tk-article-update--num" aria-hidden="true">04</span><div class="tk-article-update__content"><a href="/front-guide/backend/spring-boot/configuration" class="flx-1 hover-color sle" aria-label="Spring Boot 配置管理"><span class="tk-article-title" aria-label="文章标题"><!--v-if--><!--[--><!--[-->Spring Boot 配置管理<!--]--><!--]--><!--v-if--></span></a><span class="tk-article-update__content--date">2026-06-08 12:35:11</span></div></li><li class="flx-center"><span class="tk-article-update--num" aria-hidden="true"></span><div class="tk-article-update__content"><!--v-if--><!--v-if--></div></li><!--]--></ul></div><!--[--><!--]--><!--]--><!--v-if--><!-- 评论区 --><!--v-if--><!--]--><!--]--><!--]--></div></div></div><!--[--><!--]--></div></div><footer class="VPFooter has-sidebar" data-v-9a104c51 data-v-e315a0ad><div class="container" data-v-e315a0ad><p class="message" data-v-e315a0ad>Released under the MIT License.</p><p class="copyright" data-v-e315a0ad>Copyright © 2026 Front Guide</p></div></footer><!--[--><!--]--></div><!--]--></div>
-    
-    
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">names.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">add</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;bob&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">);</span></span></code></pre>
+                        </div>
+                        <p>
+                          如果频繁按下标访问，<code>ArrayList</code>
+                          通常更合适。如果频繁在中间插入，也要结合实际数据量评估。
+                        </p>
+                        <h2 id="set" tabindex="-1">
+                          Set
+                          <a
+                            class="header-anchor"
+                            href="#set"
+                            aria-label='Permalink to "Set"'
+                            >​</a
+                          >
+                        </h2>
+                        <p>
+                          <code>Set</code> 用于去重，依赖对象的
+                          <code>equals</code> 和 <code>hashCode</code>。
+                        </p>
+                        <div class="language-java vp-adaptive-theme">
+                          <button title="Copy Code" class="copy"></button
+                          ><span class="lang">java</span>
+                          <pre
+                            class="shiki shiki-themes github-light github-dark vp-code"
+                            tabindex="0"
+                          ><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">Set&lt;</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">Long</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&gt; userIds </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> new</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> HashSet&lt;&gt;();</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">userIds.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">add</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">1L</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">);</span></span></code></pre>
+                        </div>
+                        <p>
+                          自定义对象放入
+                          <code>HashSet</code> 时，必须正确实现相等逻辑。
+                        </p>
+                        <h2 id="map" tabindex="-1">
+                          Map
+                          <a
+                            class="header-anchor"
+                            href="#map"
+                            aria-label='Permalink to "Map"'
+                            >​</a
+                          >
+                        </h2>
+                        <p><code>Map</code> 用于通过 key 快速找到 value。</p>
+                        <div class="language-java vp-adaptive-theme">
+                          <button title="Copy Code" class="copy"></button
+                          ><span class="lang">java</span>
+                          <pre
+                            class="shiki shiki-themes github-light github-dark vp-code"
+                            tabindex="0"
+                          ><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">Map&lt;</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">Long</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">String</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&gt; userNameMap </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> new</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> HashMap&lt;&gt;();</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">userNameMap.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">put</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">1L</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;alice&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">);</span></span></code></pre>
+                        </div>
+                        <p>
+                          <code>HashMap</code> 不是线程安全的，并发场景要考虑
+                          <code>ConcurrentHashMap</code> 或外部同步。
+                        </p>
+                        <h2 id="总结" tabindex="-1">
+                          总结
+                          <a
+                            class="header-anchor"
+                            href="#总结"
+                            aria-label='Permalink to "总结"'
+                            >​</a
+                          >
+                        </h2>
+                        <p>
+                          集合选择没有固定答案。理解集合的语义和性能特点，再根据业务访问方式选择，才是可靠的做法。
+                        </p>
+                      </div>
+                    </div>
+                  </main>
+                  <footer class="VPDocFooter" data-v-39a288b8 data-v-e257564d>
+                    <!--[--><!--]-->
+                    <div class="edit-info" data-v-e257564d>
+                      <div class="edit-link" data-v-e257564d>
+                        <a
+                          class="VPLink link vp-external-link-icon no-icon edit-link-button"
+                          href="https://github.com/your-name/raw-bits/edit/main/docs/backend/java/collections.md"
+                          target="_blank"
+                          rel="noreferrer"
+                          data-v-e257564d
+                          ><!--[--><span
+                            class="vpi-square-pen edit-link-icon"
+                            data-v-e257564d
+                          ></span>
+                          在 GitHub 上编辑此页<!--]--></a
+                        >
+                      </div>
+                      <div class="last-updated" data-v-e257564d>
+                        <p
+                          class="VPLastUpdated"
+                          data-v-e257564d
+                          data-v-e98dd255
+                        >
+                          最后更新:
+                          <time
+                            datetime="2026-06-08T12:47:31.000Z"
+                            data-v-e98dd255
+                          ></time>
+                        </p>
+                      </div>
+                    </div>
+                    <nav
+                      class="prev-next"
+                      aria-labelledby="doc-footer-aria-label"
+                      data-v-e257564d
+                    >
+                      <span
+                        class="visually-hidden"
+                        id="doc-footer-aria-label"
+                        data-v-e257564d
+                        >Pager</span
+                      >
+                      <div class="pager" data-v-e257564d>
+                        <a
+                          class="VPLink link pager-link prev"
+                          href="/raw-bits/backend/java/oop"
+                          data-v-e257564d
+                          ><!--[--><span class="desc" data-v-e257564d
+                            >上一篇</span
+                          ><span class="title" data-v-e257564d>面向对象</span
+                          ><!--]--></a
+                        >
+                      </div>
+                      <div class="pager" data-v-e257564d>
+                        <a
+                          class="VPLink link pager-link next"
+                          href="/raw-bits/backend/java/exception"
+                          data-v-e257564d
+                          ><!--[--><span class="desc" data-v-e257564d
+                            >下一篇</span
+                          ><span class="title" data-v-e257564d>异常处理</span
+                          ><!--]--></a
+                        >
+                      </div>
+                    </nav>
+                  </footer>
+                  <!--[--><!--[--><!--[--><!--[--><!--]--><!--[--><!--[--><!--]-->
+                  <div class="tk-article-update">
+                    <div class="tk-article-update__title flx-align-center">
+                      <i
+                        class="tk-icon edit-icon"
+                        style="--icon-color-hover: var(--tk-theme-color)"
+                        aria-hidden="true"
+                        ><svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 1024 1024"
+                        >
+                          <path
+                            fill="currentColor"
+                            d="m199.04 672.64 193.984 112 224-387.968-193.92-112-224 388.032zm-23.872 60.16 32.896 148.288 144.896-45.696zM455.04 229.248l193.92 112 56.704-98.112-193.984-112-56.64 98.112zM104.32 708.8l384-665.024 304.768 175.936L409.152 884.8h.064l-248.448 78.336zm384 254.272v-64h448v64h-448z"
+                          ></path></svg></i
+                      ><span>最近更新</span>
+                    </div>
+                    <ul>
+                      <!--[-->
+                      <li class="flx-center">
+                        <span class="tk-article-update--num" aria-hidden="true"
+                          >01</span
+                        >
+                        <div class="tk-article-update__content">
+                          <a
+                            href="/raw-bits/backend/spring-boot/actuator"
+                            class="flx-1 hover-color sle"
+                            aria-label="Spring Boot Actuator"
+                            ><span
+                              class="tk-article-title"
+                              aria-label="文章标题"
+                              ><!--v-if--><!--[--><!--[-->Spring Boot Actuator<!--]--><!--]--><!--v-if--></span
+                            ></a
+                          ><span class="tk-article-update__content--date"
+                            >2026-06-08 12:35:12</span
+                          >
+                        </div>
+                      </li>
+                      <li class="flx-center">
+                        <span class="tk-article-update--num" aria-hidden="true"
+                          >02</span
+                        >
+                        <div class="tk-article-update__content">
+                          <a
+                            href="/raw-bits/backend/spring-boot/data-access"
+                            class="flx-1 hover-color sle"
+                            aria-label="Spring Boot 数据访问"
+                            ><span
+                              class="tk-article-title"
+                              aria-label="文章标题"
+                              ><!--v-if--><!--[--><!--[-->Spring Boot 数据访问<!--]--><!--]--><!--v-if--></span
+                            ></a
+                          ><span class="tk-article-update__content--date"
+                            >2026-06-08 12:35:12</span
+                          >
+                        </div>
+                      </li>
+                      <li class="flx-center">
+                        <span class="tk-article-update--num" aria-hidden="true"
+                          >03</span
+                        >
+                        <div class="tk-article-update__content">
+                          <a
+                            href="/raw-bits/backend/spring-boot/auto-configuration"
+                            class="flx-1 hover-color sle"
+                            aria-label="Spring Boot 自动配置"
+                            ><span
+                              class="tk-article-title"
+                              aria-label="文章标题"
+                              ><!--v-if--><!--[--><!--[-->Spring Boot 自动配置<!--]--><!--]--><!--v-if--></span
+                            ></a
+                          ><span class="tk-article-update__content--date"
+                            >2026-06-08 12:35:11</span
+                          >
+                        </div>
+                      </li>
+                      <li class="flx-center">
+                        <span class="tk-article-update--num" aria-hidden="true"
+                          >04</span
+                        >
+                        <div class="tk-article-update__content">
+                          <a
+                            href="/raw-bits/backend/spring-boot/configuration"
+                            class="flx-1 hover-color sle"
+                            aria-label="Spring Boot 配置管理"
+                            ><span
+                              class="tk-article-title"
+                              aria-label="文章标题"
+                              ><!--v-if--><!--[--><!--[-->Spring Boot 配置管理<!--]--><!--]--><!--v-if--></span
+                            ></a
+                          ><span class="tk-article-update__content--date"
+                            >2026-06-08 12:35:11</span
+                          >
+                        </div>
+                      </li>
+                      <li class="flx-center">
+                        <span
+                          class="tk-article-update--num"
+                          aria-hidden="true"
+                        ></span>
+                        <div class="tk-article-update__content">
+                          <!--v-if--><!--v-if-->
+                        </div>
+                      </li>
+                      <!--]-->
+                    </ul>
+                  </div>
+                  <!--[--><!--]--><!--]--><!--v-if--><!-- 评论区 --><!--v-if--><!--]--><!--]--><!--]-->
+                </div>
+              </div>
+            </div>
+            <!--[--><!--]-->
+          </div>
+        </div>
+        <footer class="VPFooter has-sidebar" data-v-9a104c51 data-v-e315a0ad>
+          <div class="container" data-v-e315a0ad>
+            <p class="message" data-v-e315a0ad>
+              Released under the MIT License.
+            </p>
+            <p class="copyright" data-v-e315a0ad>
+              Copyright © 2026 Front Guide
+            </p>
+          </div>
+        </footer>
+        <!--[--><!--]-->
+      </div>
+      <!--]-->
+    </div>
   </body>
 </html>

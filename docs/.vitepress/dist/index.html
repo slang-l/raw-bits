@@ -1,51 +1,955 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Front Guide</title>
-    <meta name="description" content="一份现代前端开发者的系统学习指南">
-    <meta name="generator" content="VitePress v1.6.4">
-    <link rel="preload stylesheet" href="/front-guide/assets/style.CDGLoRUw.css" as="style">
-    <link rel="preload stylesheet" href="/front-guide/vp-icons.css" as="style">
-    <script type="module" src="/front-guide/assets/chunks/metadata.4de8ee24.js"></script>
-    <script type="module" src="/front-guide/assets/app.CGCz3U2N.js"></script>
-    <link rel="preload" href="/front-guide/assets/inter-roman-latin.Di8DUHzh.woff2" as="font" type="font/woff2" crossorigin="">
-    <link rel="modulepreload" href="/front-guide/assets/chunks/theme.P9mw9BLs.js">
-    <link rel="modulepreload" href="/front-guide/assets/chunks/framework.C5oj02QE.js">
-    <link rel="modulepreload" href="/front-guide/assets/index.md.B2dFdX1i.lean.js">
-    <meta name="theme-color" content="#2563eb">
-    <link rel="icon" href="/front-guide/logo.svg">
-    <script id="check-dark-mode">(()=>{const e=localStorage.getItem("vitepress-theme-appearance")||"auto",a=window.matchMedia("(prefers-color-scheme: dark)").matches;(!e||e==="auto"?a:e==="dark")&&document.documentElement.classList.add("dark")})();</script>
-    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+    <meta name="description" content="一份现代前端开发者的系统学习指南" />
+    <meta name="generator" content="VitePress v1.6.4" />
+    <link
+      rel="preload stylesheet"
+      href="/raw-bits/assets/style.CDGLoRUw.css"
+      as="style"
+    />
+    <link rel="preload stylesheet" href="/raw-bits/vp-icons.css" as="style" />
+    <script
+      type="module"
+      src="/raw-bits/assets/chunks/metadata.4de8ee24.js"
+    ></script>
+    <script type="module" src="/raw-bits/assets/app.CGCz3U2N.js"></script>
+    <link
+      rel="preload"
+      href="/raw-bits/assets/inter-roman-latin.Di8DUHzh.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin=""
+    />
+    <link
+      rel="modulepreload"
+      href="/raw-bits/assets/chunks/theme.P9mw9BLs.js"
+    />
+    <link
+      rel="modulepreload"
+      href="/raw-bits/assets/chunks/framework.C5oj02QE.js"
+    />
+    <link
+      rel="modulepreload"
+      href="/raw-bits/assets/index.md.B2dFdX1i.lean.js"
+    />
+    <meta name="theme-color" content="#2563eb" />
+    <link rel="icon" href="/raw-bits/logo.svg" />
+    <script id="check-dark-mode">
+      (() => {
+        const e = localStorage.getItem("vitepress-theme-appearance") || "auto",
+          a = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        (!e || e === "auto" ? a : e === "dark") &&
+          document.documentElement.classList.add("dark");
+      })();
+    </script>
+    <script id="check-mac-os">
+      document.documentElement.classList.toggle(
+        "mac",
+        /Mac|iPhone|iPod|iPad/i.test(navigator.platform),
+      );
+    </script>
   </head>
   <body>
-    <div id="app"><!--[--><!--v-if--><!--v-if--><!--v-if--><!--[--><!--v-if--><!----><!--v-if--><div class="tk-right-bottom-button tk-wallpaper-outside flx-column"><!--[--><!--]--><div title="返回顶部" class="tk-right-bottom-button__button back-top" style="--tk-progress:0;display:none;" role="button" aria-label="返回顶部" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><span class="content">0</span></div><!--v-if--><!--v-if--><!--[--><!--]--></div><!--]--><div class="Layout tk-layout has-sidebar-trigger" data-v-9a104c51><!--[--><!--]--><!--[--><span tabindex="-1" data-v-0b0ada53></span><a href="#VPContent" class="VPSkipLink visually-hidden" data-v-0b0ada53>Skip to content</a><!--]--><!----><header class="VPNav" data-v-9a104c51 data-v-ae24b3ad><div class="VPNavBar" data-v-ae24b3ad data-v-6aa21345><div class="wrapper" data-v-6aa21345><div class="container" data-v-6aa21345><div class="title" data-v-6aa21345><div class="VPNavBarTitle" data-v-6aa21345 data-v-1168a8e4><a class="title" href="/front-guide/" data-v-1168a8e4><!--[--><!--]--><!--[--><img class="VPImage logo" src="/front-guide/logo.svg" alt data-v-8426fc1a><!--]--><span data-v-1168a8e4>Front Guide</span><!--[--><!--]--></a></div></div><div class="content" data-v-6aa21345><div class="content-body" data-v-6aa21345><!--[--><!--]--><div class="VPNavBarSearch search" data-v-6aa21345><!--[--><!----><div id="local-search"><button type="button" class="DocSearch DocSearch-Button" aria-label="搜索文档"><span class="DocSearch-Button-Container"><span class="vp-icon DocSearch-Search-Icon"></span><span class="DocSearch-Button-Placeholder">搜索文档</span></span><span class="DocSearch-Button-Keys"><kbd class="DocSearch-Button-Key"></kbd><kbd class="DocSearch-Button-Key">K</kbd></span></button></div><!--]--></div><nav aria-labelledby="main-nav-aria-label" class="VPNavBarMenu menu" data-v-6aa21345 data-v-dc692963><span id="main-nav-aria-label" class="visually-hidden" data-v-dc692963> Main Navigation </span><!--[--><!--[--><a class="VPLink link VPNavBarMenuLink active" href="/front-guide/" tabindex="0" data-v-dc692963 data-v-e56f3d57><!--[--><span data-v-e56f3d57>首页</span><!--]--></a><!--]--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/front-guide/basic/" tabindex="0" data-v-dc692963 data-v-e56f3d57><!--[--><span data-v-e56f3d57>前端基础</span><!--]--></a><!--]--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/front-guide/javascript/" tabindex="0" data-v-dc692963 data-v-e56f3d57><!--[--><span data-v-e56f3d57>JavaScript</span><!--]--></a><!--]--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/front-guide/typescript/" tabindex="0" data-v-dc692963 data-v-e56f3d57><!--[--><span data-v-e56f3d57>TypeScript</span><!--]--></a><!--]--><!--[--><div class="VPFlyout VPNavBarMenuGroup" data-v-dc692963 data-v-cf11d7a2><button type="button" class="button" aria-haspopup="true" aria-expanded="false" data-v-cf11d7a2><span class="text" data-v-cf11d7a2><!----><span data-v-cf11d7a2>Vue / React</span><span class="vpi-chevron-down text-icon" data-v-cf11d7a2></span></span></button><div class="menu" data-v-cf11d7a2><div class="VPMenu" data-v-cf11d7a2 data-v-b98bc113><div class="items" data-v-b98bc113><!--[--><!--[--><div class="VPMenuLink" data-v-b98bc113 data-v-35975db6><a class="VPLink link" href="/front-guide/vue/" data-v-35975db6><!--[--><span data-v-35975db6>Vue</span><!--]--></a></div><!--]--><!--[--><div class="VPMenuLink" data-v-b98bc113 data-v-35975db6><a class="VPLink link" href="/front-guide/react/" data-v-35975db6><!--[--><span data-v-35975db6>React</span><!--]--></a></div><!--]--><!--]--></div><!--[--><!--]--></div></div></div><!--]--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/front-guide/engineering/" tabindex="0" data-v-dc692963 data-v-e56f3d57><!--[--><span data-v-e56f3d57>工程化</span><!--]--></a><!--]--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/front-guide/browser/" tabindex="0" data-v-dc692963 data-v-e56f3d57><!--[--><span data-v-e56f3d57>浏览器</span><!--]--></a><!--]--><!--[--><div class="VPFlyout VPNavBarMenuGroup" data-v-dc692963 data-v-cf11d7a2><button type="button" class="button" aria-haspopup="true" aria-expanded="false" data-v-cf11d7a2><span class="text" data-v-cf11d7a2><!----><span data-v-cf11d7a2>后端</span><span class="vpi-chevron-down text-icon" data-v-cf11d7a2></span></span></button><div class="menu" data-v-cf11d7a2><div class="VPMenu" data-v-cf11d7a2 data-v-b98bc113><div class="items" data-v-b98bc113><!--[--><!--[--><div class="VPMenuLink" data-v-b98bc113 data-v-35975db6><a class="VPLink link" href="/front-guide/backend/java/" data-v-35975db6><!--[--><span data-v-35975db6>Java</span><!--]--></a></div><!--]--><!--[--><div class="VPMenuLink" data-v-b98bc113 data-v-35975db6><a class="VPLink link" href="/front-guide/backend/spring/" data-v-35975db6><!--[--><span data-v-35975db6>Spring</span><!--]--></a></div><!--]--><!--[--><div class="VPMenuLink" data-v-b98bc113 data-v-35975db6><a class="VPLink link" href="/front-guide/backend/spring-boot/" data-v-35975db6><!--[--><span data-v-35975db6>Spring Boot</span><!--]--></a></div><!--]--><!--]--></div><!--[--><!--]--></div></div></div><!--]--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/front-guide/interview/" tabindex="0" data-v-dc692963 data-v-e56f3d57><!--[--><span data-v-e56f3d57>面试指南</span><!--]--></a><!--]--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/front-guide/roadmap/" tabindex="0" data-v-dc692963 data-v-e56f3d57><!--[--><span data-v-e56f3d57>学习路线</span><!--]--></a><!--]--><!--[--><a class="VPLink link vp-external-link-icon VPNavBarMenuLink" href="https://github.com/your-name/front-guide" target="_blank" rel="noreferrer" tabindex="0" data-v-dc692963 data-v-e56f3d57><!--[--><span data-v-e56f3d57>GitHub</span><!--]--></a><!--]--><!--]--></nav><!----><div class="VPNavBarAppearance appearance" data-v-6aa21345 data-v-6c893767><button class="VPSwitch VPSwitchAppearance" type="button" role="switch" title aria-checked="false" data-v-6c893767 data-v-5337faa4 data-v-1d5665e3><span class="check" data-v-1d5665e3><span class="icon" data-v-1d5665e3><!--[--><span class="vpi-sun sun" data-v-5337faa4></span><span class="vpi-moon moon" data-v-5337faa4></span><!--]--></span></span></button></div><div class="VPSocialLinks VPNavBarSocialLinks social-links" data-v-6aa21345 data-v-0394ad82 data-v-7bc22406><!--[--><a class="VPSocialLink no-icon" href="https://github.com/your-name/front-guide" aria-label="github" target="_blank" rel="noopener" data-v-7bc22406 data-v-bd121fe5><span class="vpi-social-github"></span></a><!--]--></div><div class="VPFlyout VPNavBarExtra extra" data-v-6aa21345 data-v-bb2aa2f0 data-v-cf11d7a2><button type="button" class="button" aria-haspopup="true" aria-expanded="false" aria-label="extra navigation" data-v-cf11d7a2><span class="vpi-more-horizontal icon" data-v-cf11d7a2></span></button><div class="menu" data-v-cf11d7a2><div class="VPMenu" data-v-cf11d7a2 data-v-b98bc113><!----><!--[--><!--[--><!----><div class="group" data-v-bb2aa2f0><div class="item appearance" data-v-bb2aa2f0><p class="label" data-v-bb2aa2f0>Appearance</p><div class="appearance-action" data-v-bb2aa2f0><button class="VPSwitch VPSwitchAppearance" type="button" role="switch" title aria-checked="false" data-v-bb2aa2f0 data-v-5337faa4 data-v-1d5665e3><span class="check" data-v-1d5665e3><span class="icon" data-v-1d5665e3><!--[--><span class="vpi-sun sun" data-v-5337faa4></span><span class="vpi-moon moon" data-v-5337faa4></span><!--]--></span></span></button></div></div></div><div class="group" data-v-bb2aa2f0><div class="item social-links" data-v-bb2aa2f0><div class="VPSocialLinks social-links-list" data-v-bb2aa2f0 data-v-7bc22406><!--[--><a class="VPSocialLink no-icon" href="https://github.com/your-name/front-guide" aria-label="github" target="_blank" rel="noopener" data-v-7bc22406 data-v-bd121fe5><span class="vpi-social-github"></span></a><!--]--></div></div></div><!--]--><!--]--></div></div></div><!--[--><!--[--><!--[--><!--[--><!--]--><!--[--><div class="tk-theme-enhance flx-align-center"><!--[--><i class="tk-icon" style="--icon-size:20px;--icon-color-hover:var(--tk-theme-color);"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
-    <path
-      fill="currentColor"
-      d="m512 863.36 384-54.848v-638.72L525.568 222.72a96 96 0 0 1-27.136 0L128 169.792v638.72zM137.024 106.432l370.432 52.928a32 32 0 0 0 9.088 0l370.432-52.928A64 64 0 0 1 960 169.792v638.72a64 64 0 0 1-54.976 63.36l-388.48 55.488a32 32 0 0 1-9.088 0l-388.48-55.488A64 64 0 0 1 64 808.512v-638.72a64 64 0 0 1 73.024-63.36z"
-    ></path>
-    <path fill="currentColor" d="M480 192h64v704h-64z"></path>
-  </svg></i><!--]--></div><!--teleport start--><!--teleport end--><!--]--><!--]--><!--]--><!--]--><button type="button" class="VPNavBarHamburger hamburger" aria-label="mobile navigation" aria-expanded="false" aria-controls="VPNavScreen" data-v-6aa21345 data-v-e5dd9c1c><span class="container" data-v-e5dd9c1c><span class="top" data-v-e5dd9c1c></span><span class="middle" data-v-e5dd9c1c></span><span class="bottom" data-v-e5dd9c1c></span></span></button></div></div></div></div><div class="divider" data-v-6aa21345><div class="divider-line" data-v-6aa21345></div></div></div><!----></header><!----><!----><div class="VPContent is-home" id="VPContent" data-v-9a104c51 data-v-1428d186><div class="VPHome" data-v-1428d186 data-v-8b561e3d><!--[--><!--]--><div class="VPHero has-image VPHomeHero" data-v-8b561e3d data-v-4f9c455b><div class="container" data-v-4f9c455b><div class="main" data-v-4f9c455b><!--[--><!--]--><!--[--><h1 class="heading" data-v-4f9c455b><span class="name clip" data-v-4f9c455b>Front Guide</span><span class="text" data-v-4f9c455b>前端学习与面试知识库</span></h1><p class="tagline" data-v-4f9c455b>系统整理 HTML、CSS、JavaScript、TypeScript、Vue、React、工程化、浏览器原理与面试准备。</p><!--]--><!--[--><!--]--><div class="actions" data-v-4f9c455b><!--[--><div class="action" data-v-4f9c455b><a class="VPButton medium brand" href="/front-guide/basic/" data-v-4f9c455b data-v-fa7799d5>开始学习</a></div><div class="action" data-v-4f9c455b><a class="VPButton medium alt" href="/front-guide/roadmap/" data-v-4f9c455b data-v-fa7799d5>查看路线</a></div><!--]--></div><!--[--><!--]--></div><div class="image" data-v-4f9c455b><div class="image-container" data-v-4f9c455b><div class="image-bg" data-v-4f9c455b></div><!--[--><!--[--><img class="VPImage image-src" src="/front-guide/logo.svg" alt="Front Guide" data-v-8426fc1a><!--]--><!--]--></div></div></div></div><!--[--><!--]--><!--[--><!--]--><div class="VPFeatures VPHomeFeatures" data-v-8b561e3d data-v-a6181336><div class="container" data-v-a6181336><div class="items" data-v-a6181336><!--[--><div class="grid-6 item" data-v-a6181336><a class="VPLink link no-icon VPFeature" href="/front-guide/basic/" data-v-a6181336 data-v-a3976bdc><!--[--><article class="box" data-v-a3976bdc><!----><h2 class="title" data-v-a3976bdc>基础能力</h2><p class="details" data-v-a3976bdc>HTML 语义、CSS 布局、响应式设计和页面结构。</p><div class="link-text" data-v-a3976bdc><p class="link-text-value" data-v-a3976bdc>进入基础 <span class="vpi-arrow-right link-text-icon" data-v-a3976bdc></span></p></div></article><!--]--></a></div><div class="grid-6 item" data-v-a6181336><a class="VPLink link no-icon VPFeature" href="/front-guide/javascript/" data-v-a6181336 data-v-a3976bdc><!--[--><article class="box" data-v-a3976bdc><!----><h2 class="title" data-v-a3976bdc>JS 主线</h2><p class="details" data-v-a3976bdc>数据类型、闭包、原型、Promise 和 Event Loop。</p><div class="link-text" data-v-a3976bdc><p class="link-text-value" data-v-a3976bdc>梳理核心 <span class="vpi-arrow-right link-text-icon" data-v-a3976bdc></span></p></div></article><!--]--></a></div><div class="grid-6 item" data-v-a6181336><a class="VPLink link no-icon VPFeature" href="/front-guide/typescript/" data-v-a6181336 data-v-a3976bdc><!--[--><article class="box" data-v-a3976bdc><!----><h2 class="title" data-v-a3976bdc>类型系统</h2><p class="details" data-v-a3976bdc>TypeScript 基础类型、接口、类型别名和泛型。</p><div class="link-text" data-v-a3976bdc><p class="link-text-value" data-v-a3976bdc>学习 TS <span class="vpi-arrow-right link-text-icon" data-v-a3976bdc></span></p></div></article><!--]--></a></div><div class="grid-6 item" data-v-a6181336><a class="VPLink link no-icon VPFeature" href="/front-guide/vue/" data-v-a6181336 data-v-a3976bdc><!--[--><article class="box" data-v-a3976bdc><!----><h2 class="title" data-v-a3976bdc>框架实践</h2><p class="details" data-v-a3976bdc>Vue、React 的组件模型、状态管理与性能优化。</p><div class="link-text" data-v-a3976bdc><p class="link-text-value" data-v-a3976bdc>查看框架 <span class="vpi-arrow-right link-text-icon" data-v-a3976bdc></span></p></div></article><!--]--></a></div><div class="grid-6 item" data-v-a6181336><a class="VPLink link no-icon VPFeature" href="/front-guide/engineering/" data-v-a6181336 data-v-a3976bdc><!--[--><article class="box" data-v-a3976bdc><!----><h2 class="title" data-v-a3976bdc>工程链路</h2><p class="details" data-v-a3976bdc>Vite、规范工具、GitHub Actions 和部署流程。</p><div class="link-text" data-v-a3976bdc><p class="link-text-value" data-v-a3976bdc>做好工程 <span class="vpi-arrow-right link-text-icon" data-v-a3976bdc></span></p></div></article><!--]--></a></div><div class="grid-6 item" data-v-a6181336><a class="VPLink link no-icon VPFeature" href="/front-guide/interview/" data-v-a6181336 data-v-a3976bdc><!--[--><article class="box" data-v-a3976bdc><!----><h2 class="title" data-v-a3976bdc>面试复习</h2><p class="details" data-v-a3976bdc>高频手写题、八股题、项目亮点和简历表达。</p><div class="link-text" data-v-a3976bdc><p class="link-text-value" data-v-a3976bdc>准备面试 <span class="vpi-arrow-right link-text-icon" data-v-a3976bdc></span></p></div></article><!--]--></a></div><!--]--></div></div></div><!--[--><!--[--><!--[--><!--[--><!--[--><!--]--><div class="tk-home-features vp-doc"><!--[--><!--[--><!--v-if--><!--]--><!--[--><!--v-if--><!--]--><!--[--><!--v-if--><!--]--><!--[--><!--v-if--><!--]--><!--[--><!--v-if--><!--]--><!--[--><!--v-if--><!--]--><!--]--></div><!--[--><!--]--><!--]--><!--[--><!--]--><!--]--><!--]--><!--]--><div class="vp-doc container" style="" data-v-8b561e3d data-v-8e2d4988><!--[--><div style="position:relative;" data-v-8b561e3d><div><div class="fg-home"><section class="fg-section"><div class="fg-section-head"><p class="fg-kicker">Must Read</p><h2>必读入口</h2><p>像翻技术手册一样进入知识体系，先抓主线，再补细节。</p></div><div class="fg-link-grid"><!--[--><a class="accent-blue fg-link-card" href="/front-guide/javascript/closure"><span>JavaScript</span><strong>深入理解闭包</strong><em>作用域、变量生命周期和面试表达</em></a><a class="accent-cyan fg-link-card" href="/front-guide/javascript/event-loop"><span>运行机制</span><strong>Event Loop 事件循环</strong><em>同步任务、宏任务、微任务和 async/await</em></a><a class="accent-indigo fg-link-card" href="/front-guide/basic/css/flex"><span>CSS</span><strong>Flex 布局完全指南</strong><em>主轴、交叉轴、容器属性和项目属性</em></a><a class="accent-slate fg-link-card" href="/front-guide/interview/handwrite"><span>Interview</span><strong>前端高频手写题</strong><em>防抖、节流、深拷贝和 Promise.all</em></a><!--]--></div></section><section class="fg-section fg-two-col"><div><div class="fg-section-head compact"><p class="fg-kicker">Roadmap</p><h2>学习路径</h2></div><ol class="fg-roadmap"><!--[--><li><a href="/front-guide/basic/">前端基础</a><span>HTML、CSS、响应式与页面结构</span></li><li><a href="/front-guide/javascript/">JavaScript 核心</a><span>语言机制、异步编程和对象模型</span></li><li><a href="/front-guide/typescript/">TypeScript</a><span>类型建模、泛型和工程约束</span></li><li><a href="/front-guide/vue/">Vue / React</a><span>组件、状态、路由和性能优化</span></li><li><a href="/front-guide/engineering/">工程化</a><span>构建、规范、CI/CD 和发布</span></li><!--]--></ol></div><div><div class="fg-section-head compact"><p class="fg-kicker">Review</p><h2>面试复习</h2></div><div class="fg-review-list"><!--[--><a href="/front-guide/interview/questions">高频八股题 <span>概念模型和回答结构</span></a><a href="/front-guide/browser/render">浏览器渲染原理 <span>DOM、CSSOM、布局和绘制</span></a><a href="/front-guide/engineering/vite">Vite 核心原理 <span>ESM、预构建、HMR 和 Rollup</span></a><a href="/front-guide/interview/resume">简历建议 <span>项目亮点和结果表达</span></a><!--]--></div></div></section><section class="fg-section fg-footer-entry"><div><p class="fg-kicker">Maintain</p><h2>长期维护入口</h2><p>新增文章时，优先保持目录稳定、标题清楚、侧边栏同步。</p></div><div class="fg-actions"><a href="/front-guide/writing-guide">写作指南</a><a href="https://github.com/your-name/front-guide">GitHub 仓库</a></div></section></div></div></div><!--]--></div></div></div><footer class="VPFooter" data-v-9a104c51 data-v-e315a0ad><div class="container" data-v-e315a0ad><p class="message" data-v-e315a0ad>Released under the MIT License.</p><p class="copyright" data-v-e315a0ad>Copyright © 2026 Front Guide</p></div></footer><!--[--><!--[--><!--[--><!--]--><!--v-if--><!--[--><!--]--><!--[--><!--]--><!--[--><div class="tk-footer-info tk-wallpaper-outside" role="contentinfo" aria-label="页脚信息"><!--v-if--><!--[--><!--[--><!--]--><div class="tk-footer-info__list flx-wrap-justify-center" role="list" aria-label="页脚内容"><!--[--><div class="tk-footer-info__list__item flx-align-center" role="listitem"><i class="tk-icon" style="--icon-color:var(--vp-c-text-2);--icon-size:16px;--icon-color-hover:var(--tk-theme-color);" aria-hidden="true"><svg width="128" height="128" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-  <title>主题</title>
-  <path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10a2.5 2.5 0 0 0 2.5-2.5c0-.61-.23-1.2-.64-1.67a.528.528 0 0 1-.13-.33c0-.28.22-.5.5-.5H16c3.31 0 6-2.69 6-6c0-4.96-4.49-9-10-9zm5.5 11c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5s1.5.67 1.5 1.5s-.67 1.5-1.5 1.5zm-3-4c-.83 0-1.5-.67-1.5-1.5S13.67 6 14.5 6s1.5.67 1.5 1.5S15.33 9 14.5 9zM5 11.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5S7.33 13 6.5 13S5 12.33 5 11.5zm6-4c0 .83-.67 1.5-1.5 1.5S8 8.33 8 7.5S8.67 6 9.5 6s1.5.67 1.5 1.5z"/>
-  </svg></i><a href="https://github.com/Kele-Bingtang/vitepress-theme-teek" target="_blank" aria-label="Theme By Teek">Theme By Teek</a></div><div class="tk-footer-info__list__item flx-align-center" role="listitem"><i class="tk-icon" style="--icon-color:var(--vp-c-text-2);--icon-size:16px;--icon-color-hover:var(--tk-theme-color);" aria-hidden="true"><svg
-    t="1695543755857"
-    class="icon"
-    viewBox="0 0 1024 1024"
-    version="1.1"
-    xmlns="http://www.w3.org/2000/svg"
-    p-id="89399"
-    width="200"
-    height="200"
-  >
-    <path
-      fill="currentColor"
-      d="M512 16C238.066 16 16 238.066 16 512s222.066 496 496 496 496-222.066 496-496S785.934 16 512 16z m234.268 693.506c-3.184 3.734-79.552 91.462-219.702 91.462-169.384 0-288.968-126.52-288.968-291.134 0-162.606 124.008-286.802 287.524-286.802 133.914 0 203.93 74.63 206.844 77.808a24 24 0 0 1 2.476 29.246l-44.76 69.31c-8.098 12.534-25.548 14.702-36.468 4.59-0.466-0.428-53.058-47.76-123.76-47.76-92.232 0-147.832 67.15-147.832 152.164 0 79.204 51.028 159.384 148.554 159.384 77.394 0 130.56-56.676 131.088-57.25 10.264-11.13 28.118-10.066 37.016 2.106l49.094 67.144a24.002 24.002 0 0 1-1.106 29.732z"
-      p-id="89400"
-    />
-  </svg></i><span>Copyright 2026 </span></div><!--]--><!--v-if--></div><!--[--><!--]--><!--]--></div><!--]--><!--[--><!--]--><!--]--><!--[--><!--]--><!--]--></div><!--]--></div>
-    
-    
+    <div id="app">
+      <!--[--><!--v-if--><!--v-if--><!--v-if--><!--[--><!--v-if--><!----><!--v-if-->
+      <div class="tk-right-bottom-button tk-wallpaper-outside flx-column">
+        <!--[--><!--]-->
+        <div
+          title="返回顶部"
+          class="tk-right-bottom-button__button back-top"
+          style="--tk-progress: 0; display: none"
+          role="button"
+          aria-label="返回顶部"
+          aria-valuenow="0"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          <span class="content">0</span>
+        </div>
+        <!--v-if--><!--v-if--><!--[--><!--]-->
+      </div>
+      <!--]-->
+      <div class="Layout tk-layout has-sidebar-trigger" data-v-9a104c51>
+        <!--[--><!--]--><!--[--><span tabindex="-1" data-v-0b0ada53></span
+        ><a href="#VPContent" class="VPSkipLink visually-hidden" data-v-0b0ada53
+          >Skip to content</a
+        ><!--]--><!---->
+        <header class="VPNav" data-v-9a104c51 data-v-ae24b3ad>
+          <div class="VPNavBar" data-v-ae24b3ad data-v-6aa21345>
+            <div class="wrapper" data-v-6aa21345>
+              <div class="container" data-v-6aa21345>
+                <div class="title" data-v-6aa21345>
+                  <div class="VPNavBarTitle" data-v-6aa21345 data-v-1168a8e4>
+                    <a class="title" href="/raw-bits/" data-v-1168a8e4
+                      ><!--[--><!--]--><!--[--><img
+                        class="VPImage logo"
+                        src="/raw-bits/logo.svg"
+                        alt
+                        data-v-8426fc1a
+                      /><!--]--><span data-v-1168a8e4>Front Guide</span
+                      ><!--[--><!--]--></a
+                    >
+                  </div>
+                </div>
+                <div class="content" data-v-6aa21345>
+                  <div class="content-body" data-v-6aa21345>
+                    <!--[--><!--]-->
+                    <div class="VPNavBarSearch search" data-v-6aa21345>
+                      <!--[--><!---->
+                      <div id="local-search">
+                        <button
+                          type="button"
+                          class="DocSearch DocSearch-Button"
+                          aria-label="搜索文档"
+                        >
+                          <span class="DocSearch-Button-Container"
+                            ><span class="vp-icon DocSearch-Search-Icon"></span
+                            ><span class="DocSearch-Button-Placeholder"
+                              >搜索文档</span
+                            ></span
+                          ><span class="DocSearch-Button-Keys"
+                            ><kbd class="DocSearch-Button-Key"></kbd
+                            ><kbd class="DocSearch-Button-Key">K</kbd></span
+                          >
+                        </button>
+                      </div>
+                      <!--]-->
+                    </div>
+                    <nav
+                      aria-labelledby="main-nav-aria-label"
+                      class="VPNavBarMenu menu"
+                      data-v-6aa21345
+                      data-v-dc692963
+                    >
+                      <span
+                        id="main-nav-aria-label"
+                        class="visually-hidden"
+                        data-v-dc692963
+                      >
+                        Main Navigation </span
+                      ><!--[--><!--[--><a
+                        class="VPLink link VPNavBarMenuLink active"
+                        href="/raw-bits/"
+                        tabindex="0"
+                        data-v-dc692963
+                        data-v-e56f3d57
+                        ><!--[--><span data-v-e56f3d57>首页</span
+                        ><!--]--></a
+                      ><!--]--><!--[--><a
+                        class="VPLink link VPNavBarMenuLink"
+                        href="/raw-bits/basic/"
+                        tabindex="0"
+                        data-v-dc692963
+                        data-v-e56f3d57
+                        ><!--[--><span data-v-e56f3d57>前端基础</span
+                        ><!--]--></a
+                      ><!--]--><!--[--><a
+                        class="VPLink link VPNavBarMenuLink"
+                        href="/raw-bits/javascript/"
+                        tabindex="0"
+                        data-v-dc692963
+                        data-v-e56f3d57
+                        ><!--[--><span data-v-e56f3d57>JavaScript</span
+                        ><!--]--></a
+                      ><!--]--><!--[--><a
+                        class="VPLink link VPNavBarMenuLink"
+                        href="/raw-bits/typescript/"
+                        tabindex="0"
+                        data-v-dc692963
+                        data-v-e56f3d57
+                        ><!--[--><span data-v-e56f3d57>TypeScript</span
+                        ><!--]--></a
+                      ><!--]--><!--[-->
+                      <div
+                        class="VPFlyout VPNavBarMenuGroup"
+                        data-v-dc692963
+                        data-v-cf11d7a2
+                      >
+                        <button
+                          type="button"
+                          class="button"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                          data-v-cf11d7a2
+                        >
+                          <span class="text" data-v-cf11d7a2
+                            ><!----><span data-v-cf11d7a2>Vue / React</span
+                            ><span
+                              class="vpi-chevron-down text-icon"
+                              data-v-cf11d7a2
+                            ></span
+                          ></span>
+                        </button>
+                        <div class="menu" data-v-cf11d7a2>
+                          <div class="VPMenu" data-v-cf11d7a2 data-v-b98bc113>
+                            <div class="items" data-v-b98bc113>
+                              <!--[--><!--[-->
+                              <div
+                                class="VPMenuLink"
+                                data-v-b98bc113
+                                data-v-35975db6
+                              >
+                                <a
+                                  class="VPLink link"
+                                  href="/raw-bits/vue/"
+                                  data-v-35975db6
+                                  ><!--[--><span data-v-35975db6>Vue</span
+                                  ><!--]--></a
+                                >
+                              </div>
+                              <!--]--><!--[-->
+                              <div
+                                class="VPMenuLink"
+                                data-v-b98bc113
+                                data-v-35975db6
+                              >
+                                <a
+                                  class="VPLink link"
+                                  href="/raw-bits/react/"
+                                  data-v-35975db6
+                                  ><!--[--><span data-v-35975db6>React</span
+                                  ><!--]--></a
+                                >
+                              </div>
+                              <!--]--><!--]-->
+                            </div>
+                            <!--[--><!--]-->
+                          </div>
+                        </div>
+                      </div>
+                      <!--]--><!--[--><a
+                        class="VPLink link VPNavBarMenuLink"
+                        href="/raw-bits/engineering/"
+                        tabindex="0"
+                        data-v-dc692963
+                        data-v-e56f3d57
+                        ><!--[--><span data-v-e56f3d57>工程化</span
+                        ><!--]--></a
+                      ><!--]--><!--[--><a
+                        class="VPLink link VPNavBarMenuLink"
+                        href="/raw-bits/browser/"
+                        tabindex="0"
+                        data-v-dc692963
+                        data-v-e56f3d57
+                        ><!--[--><span data-v-e56f3d57>浏览器</span
+                        ><!--]--></a
+                      ><!--]--><!--[-->
+                      <div
+                        class="VPFlyout VPNavBarMenuGroup"
+                        data-v-dc692963
+                        data-v-cf11d7a2
+                      >
+                        <button
+                          type="button"
+                          class="button"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                          data-v-cf11d7a2
+                        >
+                          <span class="text" data-v-cf11d7a2
+                            ><!----><span data-v-cf11d7a2>后端</span
+                            ><span
+                              class="vpi-chevron-down text-icon"
+                              data-v-cf11d7a2
+                            ></span
+                          ></span>
+                        </button>
+                        <div class="menu" data-v-cf11d7a2>
+                          <div class="VPMenu" data-v-cf11d7a2 data-v-b98bc113>
+                            <div class="items" data-v-b98bc113>
+                              <!--[--><!--[-->
+                              <div
+                                class="VPMenuLink"
+                                data-v-b98bc113
+                                data-v-35975db6
+                              >
+                                <a
+                                  class="VPLink link"
+                                  href="/raw-bits/backend/java/"
+                                  data-v-35975db6
+                                  ><!--[--><span data-v-35975db6>Java</span
+                                  ><!--]--></a
+                                >
+                              </div>
+                              <!--]--><!--[-->
+                              <div
+                                class="VPMenuLink"
+                                data-v-b98bc113
+                                data-v-35975db6
+                              >
+                                <a
+                                  class="VPLink link"
+                                  href="/raw-bits/backend/spring/"
+                                  data-v-35975db6
+                                  ><!--[--><span data-v-35975db6>Spring</span
+                                  ><!--]--></a
+                                >
+                              </div>
+                              <!--]--><!--[-->
+                              <div
+                                class="VPMenuLink"
+                                data-v-b98bc113
+                                data-v-35975db6
+                              >
+                                <a
+                                  class="VPLink link"
+                                  href="/raw-bits/backend/spring-boot/"
+                                  data-v-35975db6
+                                  ><!--[--><span data-v-35975db6
+                                    >Spring Boot</span
+                                  ><!--]--></a
+                                >
+                              </div>
+                              <!--]--><!--]-->
+                            </div>
+                            <!--[--><!--]-->
+                          </div>
+                        </div>
+                      </div>
+                      <!--]--><!--[--><a
+                        class="VPLink link VPNavBarMenuLink"
+                        href="/raw-bits/interview/"
+                        tabindex="0"
+                        data-v-dc692963
+                        data-v-e56f3d57
+                        ><!--[--><span data-v-e56f3d57>面试指南</span
+                        ><!--]--></a
+                      ><!--]--><!--[--><a
+                        class="VPLink link VPNavBarMenuLink"
+                        href="/raw-bits/roadmap/"
+                        tabindex="0"
+                        data-v-dc692963
+                        data-v-e56f3d57
+                        ><!--[--><span data-v-e56f3d57>学习路线</span
+                        ><!--]--></a
+                      ><!--]--><!--[--><a
+                        class="VPLink link vp-external-link-icon VPNavBarMenuLink"
+                        href="https://github.com/your-name/raw-bits"
+                        target="_blank"
+                        rel="noreferrer"
+                        tabindex="0"
+                        data-v-dc692963
+                        data-v-e56f3d57
+                        ><!--[--><span data-v-e56f3d57>GitHub</span
+                        ><!--]--></a
+                      ><!--]--><!--]-->
+                    </nav>
+                    <!---->
+                    <div
+                      class="VPNavBarAppearance appearance"
+                      data-v-6aa21345
+                      data-v-6c893767
+                    >
+                      <button
+                        class="VPSwitch VPSwitchAppearance"
+                        type="button"
+                        role="switch"
+                        title
+                        aria-checked="false"
+                        data-v-6c893767
+                        data-v-5337faa4
+                        data-v-1d5665e3
+                      >
+                        <span class="check" data-v-1d5665e3
+                          ><span class="icon" data-v-1d5665e3
+                            ><!--[--><span
+                              class="vpi-sun sun"
+                              data-v-5337faa4
+                            ></span
+                            ><span class="vpi-moon moon" data-v-5337faa4></span
+                            ><!--]--></span
+                          ></span
+                        >
+                      </button>
+                    </div>
+                    <div
+                      class="VPSocialLinks VPNavBarSocialLinks social-links"
+                      data-v-6aa21345
+                      data-v-0394ad82
+                      data-v-7bc22406
+                    >
+                      <!--[--><a
+                        class="VPSocialLink no-icon"
+                        href="https://github.com/your-name/raw-bits"
+                        aria-label="github"
+                        target="_blank"
+                        rel="noopener"
+                        data-v-7bc22406
+                        data-v-bd121fe5
+                        ><span class="vpi-social-github"></span></a
+                      ><!--]-->
+                    </div>
+                    <div
+                      class="VPFlyout VPNavBarExtra extra"
+                      data-v-6aa21345
+                      data-v-bb2aa2f0
+                      data-v-cf11d7a2
+                    >
+                      <button
+                        type="button"
+                        class="button"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        aria-label="extra navigation"
+                        data-v-cf11d7a2
+                      >
+                        <span
+                          class="vpi-more-horizontal icon"
+                          data-v-cf11d7a2
+                        ></span>
+                      </button>
+                      <div class="menu" data-v-cf11d7a2>
+                        <div class="VPMenu" data-v-cf11d7a2 data-v-b98bc113>
+                          <!----><!--[--><!--[--><!---->
+                          <div class="group" data-v-bb2aa2f0>
+                            <div class="item appearance" data-v-bb2aa2f0>
+                              <p class="label" data-v-bb2aa2f0>Appearance</p>
+                              <div class="appearance-action" data-v-bb2aa2f0>
+                                <button
+                                  class="VPSwitch VPSwitchAppearance"
+                                  type="button"
+                                  role="switch"
+                                  title
+                                  aria-checked="false"
+                                  data-v-bb2aa2f0
+                                  data-v-5337faa4
+                                  data-v-1d5665e3
+                                >
+                                  <span class="check" data-v-1d5665e3
+                                    ><span class="icon" data-v-1d5665e3
+                                      ><!--[--><span
+                                        class="vpi-sun sun"
+                                        data-v-5337faa4
+                                      ></span
+                                      ><span
+                                        class="vpi-moon moon"
+                                        data-v-5337faa4
+                                      ></span
+                                      ><!--]--></span
+                                    ></span
+                                  >
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="group" data-v-bb2aa2f0>
+                            <div class="item social-links" data-v-bb2aa2f0>
+                              <div
+                                class="VPSocialLinks social-links-list"
+                                data-v-bb2aa2f0
+                                data-v-7bc22406
+                              >
+                                <!--[--><a
+                                  class="VPSocialLink no-icon"
+                                  href="https://github.com/your-name/raw-bits"
+                                  aria-label="github"
+                                  target="_blank"
+                                  rel="noopener"
+                                  data-v-7bc22406
+                                  data-v-bd121fe5
+                                  ><span class="vpi-social-github"></span></a
+                                ><!--]-->
+                              </div>
+                            </div>
+                          </div>
+                          <!--]--><!--]-->
+                        </div>
+                      </div>
+                    </div>
+                    <!--[--><!--[--><!--[--><!--[--><!--]--><!--[-->
+                    <div class="tk-theme-enhance flx-align-center">
+                      <!--[--><i
+                        class="tk-icon"
+                        style="
+                          --icon-size: 20px;
+                          --icon-color-hover: var(--tk-theme-color);
+                        "
+                        ><svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 1024 1024"
+                        >
+                          <path
+                            fill="currentColor"
+                            d="m512 863.36 384-54.848v-638.72L525.568 222.72a96 96 0 0 1-27.136 0L128 169.792v638.72zM137.024 106.432l370.432 52.928a32 32 0 0 0 9.088 0l370.432-52.928A64 64 0 0 1 960 169.792v638.72a64 64 0 0 1-54.976 63.36l-388.48 55.488a32 32 0 0 1-9.088 0l-388.48-55.488A64 64 0 0 1 64 808.512v-638.72a64 64 0 0 1 73.024-63.36z"
+                          ></path>
+                          <path
+                            fill="currentColor"
+                            d="M480 192h64v704h-64z"
+                          ></path></svg></i
+                      ><!--]-->
+                    </div>
+                    <!--teleport start--><!--teleport end--><!--]--><!--]--><!--]--><!--]--><button
+                      type="button"
+                      class="VPNavBarHamburger hamburger"
+                      aria-label="mobile navigation"
+                      aria-expanded="false"
+                      aria-controls="VPNavScreen"
+                      data-v-6aa21345
+                      data-v-e5dd9c1c
+                    >
+                      <span class="container" data-v-e5dd9c1c
+                        ><span class="top" data-v-e5dd9c1c></span
+                        ><span class="middle" data-v-e5dd9c1c></span
+                        ><span class="bottom" data-v-e5dd9c1c></span
+                      ></span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="divider" data-v-6aa21345>
+              <div class="divider-line" data-v-6aa21345></div>
+            </div>
+          </div>
+          <!---->
+        </header>
+        <!----><!---->
+        <div
+          class="VPContent is-home"
+          id="VPContent"
+          data-v-9a104c51
+          data-v-1428d186
+        >
+          <div class="VPHome" data-v-1428d186 data-v-8b561e3d>
+            <!--[--><!--]-->
+            <div
+              class="VPHero has-image VPHomeHero"
+              data-v-8b561e3d
+              data-v-4f9c455b
+            >
+              <div class="container" data-v-4f9c455b>
+                <div class="main" data-v-4f9c455b>
+                  <!--[--><!--]--><!--[-->
+                  <h1 class="heading" data-v-4f9c455b>
+                    <span class="name clip" data-v-4f9c455b>Front Guide</span
+                    ><span class="text" data-v-4f9c455b
+                      >前端学习与面试知识库</span
+                    >
+                  </h1>
+                  <p class="tagline" data-v-4f9c455b>
+                    系统整理
+                    HTML、CSS、JavaScript、TypeScript、Vue、React、工程化、浏览器原理与面试准备。
+                  </p>
+                  <!--]--><!--[--><!--]-->
+                  <div class="actions" data-v-4f9c455b>
+                    <!--[-->
+                    <div class="action" data-v-4f9c455b>
+                      <a
+                        class="VPButton medium brand"
+                        href="/raw-bits/basic/"
+                        data-v-4f9c455b
+                        data-v-fa7799d5
+                        >开始学习</a
+                      >
+                    </div>
+                    <div class="action" data-v-4f9c455b>
+                      <a
+                        class="VPButton medium alt"
+                        href="/raw-bits/roadmap/"
+                        data-v-4f9c455b
+                        data-v-fa7799d5
+                        >查看路线</a
+                      >
+                    </div>
+                    <!--]-->
+                  </div>
+                  <!--[--><!--]-->
+                </div>
+                <div class="image" data-v-4f9c455b>
+                  <div class="image-container" data-v-4f9c455b>
+                    <div class="image-bg" data-v-4f9c455b></div>
+                    <!--[--><!--[--><img
+                      class="VPImage image-src"
+                      src="/raw-bits/logo.svg"
+                      alt="Front Guide"
+                      data-v-8426fc1a
+                    /><!--]--><!--]-->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--[--><!--]--><!--[--><!--]-->
+            <div
+              class="VPFeatures VPHomeFeatures"
+              data-v-8b561e3d
+              data-v-a6181336
+            >
+              <div class="container" data-v-a6181336>
+                <div class="items" data-v-a6181336>
+                  <!--[-->
+                  <div class="grid-6 item" data-v-a6181336>
+                    <a
+                      class="VPLink link no-icon VPFeature"
+                      href="/raw-bits/basic/"
+                      data-v-a6181336
+                      data-v-a3976bdc
+                      ><!--[-->
+                      <article class="box" data-v-a3976bdc>
+                        <!---->
+                        <h2 class="title" data-v-a3976bdc>基础能力</h2>
+                        <p class="details" data-v-a3976bdc>
+                          HTML 语义、CSS 布局、响应式设计和页面结构。
+                        </p>
+                        <div class="link-text" data-v-a3976bdc>
+                          <p class="link-text-value" data-v-a3976bdc>
+                            进入基础
+                            <span
+                              class="vpi-arrow-right link-text-icon"
+                              data-v-a3976bdc
+                            ></span>
+                          </p>
+                        </div>
+                      </article>
+                      <!--]--></a
+                    >
+                  </div>
+                  <div class="grid-6 item" data-v-a6181336>
+                    <a
+                      class="VPLink link no-icon VPFeature"
+                      href="/raw-bits/javascript/"
+                      data-v-a6181336
+                      data-v-a3976bdc
+                      ><!--[-->
+                      <article class="box" data-v-a3976bdc>
+                        <!---->
+                        <h2 class="title" data-v-a3976bdc>JS 主线</h2>
+                        <p class="details" data-v-a3976bdc>
+                          数据类型、闭包、原型、Promise 和 Event Loop。
+                        </p>
+                        <div class="link-text" data-v-a3976bdc>
+                          <p class="link-text-value" data-v-a3976bdc>
+                            梳理核心
+                            <span
+                              class="vpi-arrow-right link-text-icon"
+                              data-v-a3976bdc
+                            ></span>
+                          </p>
+                        </div>
+                      </article>
+                      <!--]--></a
+                    >
+                  </div>
+                  <div class="grid-6 item" data-v-a6181336>
+                    <a
+                      class="VPLink link no-icon VPFeature"
+                      href="/raw-bits/typescript/"
+                      data-v-a6181336
+                      data-v-a3976bdc
+                      ><!--[-->
+                      <article class="box" data-v-a3976bdc>
+                        <!---->
+                        <h2 class="title" data-v-a3976bdc>类型系统</h2>
+                        <p class="details" data-v-a3976bdc>
+                          TypeScript 基础类型、接口、类型别名和泛型。
+                        </p>
+                        <div class="link-text" data-v-a3976bdc>
+                          <p class="link-text-value" data-v-a3976bdc>
+                            学习 TS
+                            <span
+                              class="vpi-arrow-right link-text-icon"
+                              data-v-a3976bdc
+                            ></span>
+                          </p>
+                        </div>
+                      </article>
+                      <!--]--></a
+                    >
+                  </div>
+                  <div class="grid-6 item" data-v-a6181336>
+                    <a
+                      class="VPLink link no-icon VPFeature"
+                      href="/raw-bits/vue/"
+                      data-v-a6181336
+                      data-v-a3976bdc
+                      ><!--[-->
+                      <article class="box" data-v-a3976bdc>
+                        <!---->
+                        <h2 class="title" data-v-a3976bdc>框架实践</h2>
+                        <p class="details" data-v-a3976bdc>
+                          Vue、React 的组件模型、状态管理与性能优化。
+                        </p>
+                        <div class="link-text" data-v-a3976bdc>
+                          <p class="link-text-value" data-v-a3976bdc>
+                            查看框架
+                            <span
+                              class="vpi-arrow-right link-text-icon"
+                              data-v-a3976bdc
+                            ></span>
+                          </p>
+                        </div>
+                      </article>
+                      <!--]--></a
+                    >
+                  </div>
+                  <div class="grid-6 item" data-v-a6181336>
+                    <a
+                      class="VPLink link no-icon VPFeature"
+                      href="/raw-bits/engineering/"
+                      data-v-a6181336
+                      data-v-a3976bdc
+                      ><!--[-->
+                      <article class="box" data-v-a3976bdc>
+                        <!---->
+                        <h2 class="title" data-v-a3976bdc>工程链路</h2>
+                        <p class="details" data-v-a3976bdc>
+                          Vite、规范工具、GitHub Actions 和部署流程。
+                        </p>
+                        <div class="link-text" data-v-a3976bdc>
+                          <p class="link-text-value" data-v-a3976bdc>
+                            做好工程
+                            <span
+                              class="vpi-arrow-right link-text-icon"
+                              data-v-a3976bdc
+                            ></span>
+                          </p>
+                        </div>
+                      </article>
+                      <!--]--></a
+                    >
+                  </div>
+                  <div class="grid-6 item" data-v-a6181336>
+                    <a
+                      class="VPLink link no-icon VPFeature"
+                      href="/raw-bits/interview/"
+                      data-v-a6181336
+                      data-v-a3976bdc
+                      ><!--[-->
+                      <article class="box" data-v-a3976bdc>
+                        <!---->
+                        <h2 class="title" data-v-a3976bdc>面试复习</h2>
+                        <p class="details" data-v-a3976bdc>
+                          高频手写题、八股题、项目亮点和简历表达。
+                        </p>
+                        <div class="link-text" data-v-a3976bdc>
+                          <p class="link-text-value" data-v-a3976bdc>
+                            准备面试
+                            <span
+                              class="vpi-arrow-right link-text-icon"
+                              data-v-a3976bdc
+                            ></span>
+                          </p>
+                        </div>
+                      </article>
+                      <!--]--></a
+                    >
+                  </div>
+                  <!--]-->
+                </div>
+              </div>
+            </div>
+            <!--[--><!--[--><!--[--><!--[--><!--[--><!--]-->
+            <div class="tk-home-features vp-doc">
+              <!--[--><!--[--><!--v-if--><!--]--><!--[--><!--v-if--><!--]--><!--[--><!--v-if--><!--]--><!--[--><!--v-if--><!--]--><!--[--><!--v-if--><!--]--><!--[--><!--v-if--><!--]--><!--]-->
+            </div>
+            <!--[--><!--]--><!--]--><!--[--><!--]--><!--]--><!--]--><!--]-->
+            <div
+              class="vp-doc container"
+              style=""
+              data-v-8b561e3d
+              data-v-8e2d4988
+            >
+              <!--[-->
+              <div style="position: relative" data-v-8b561e3d>
+                <div>
+                  <div class="fg-home">
+                    <section class="fg-section">
+                      <div class="fg-section-head">
+                        <p class="fg-kicker">Must Read</p>
+                        <h2>必读入口</h2>
+                        <p>
+                          像翻技术手册一样进入知识体系，先抓主线，再补细节。
+                        </p>
+                      </div>
+                      <div class="fg-link-grid">
+                        <!--[--><a
+                          class="accent-blue fg-link-card"
+                          href="/raw-bits/javascript/closure"
+                          ><span>JavaScript</span><strong>深入理解闭包</strong
+                          ><em>作用域、变量生命周期和面试表达</em></a
+                        ><a
+                          class="accent-cyan fg-link-card"
+                          href="/raw-bits/javascript/event-loop"
+                          ><span>运行机制</span
+                          ><strong>Event Loop 事件循环</strong
+                          ><em>同步任务、宏任务、微任务和 async/await</em></a
+                        ><a
+                          class="accent-indigo fg-link-card"
+                          href="/raw-bits/basic/css/flex"
+                          ><span>CSS</span><strong>Flex 布局完全指南</strong
+                          ><em>主轴、交叉轴、容器属性和项目属性</em></a
+                        ><a
+                          class="accent-slate fg-link-card"
+                          href="/raw-bits/interview/handwrite"
+                          ><span>Interview</span><strong>前端高频手写题</strong
+                          ><em>防抖、节流、深拷贝和 Promise.all</em></a
+                        ><!--]-->
+                      </div>
+                    </section>
+                    <section class="fg-section fg-two-col">
+                      <div>
+                        <div class="fg-section-head compact">
+                          <p class="fg-kicker">Roadmap</p>
+                          <h2>学习路径</h2>
+                        </div>
+                        <ol class="fg-roadmap">
+                          <!--[-->
+                          <li>
+                            <a href="/raw-bits/basic/">前端基础</a
+                            ><span>HTML、CSS、响应式与页面结构</span>
+                          </li>
+                          <li>
+                            <a href="/raw-bits/javascript/">JavaScript 核心</a
+                            ><span>语言机制、异步编程和对象模型</span>
+                          </li>
+                          <li>
+                            <a href="/raw-bits/typescript/">TypeScript</a
+                            ><span>类型建模、泛型和工程约束</span>
+                          </li>
+                          <li>
+                            <a href="/raw-bits/vue/">Vue / React</a
+                            ><span>组件、状态、路由和性能优化</span>
+                          </li>
+                          <li>
+                            <a href="/raw-bits/engineering/">工程化</a
+                            ><span>构建、规范、CI/CD 和发布</span>
+                          </li>
+                          <!--]-->
+                        </ol>
+                      </div>
+                      <div>
+                        <div class="fg-section-head compact">
+                          <p class="fg-kicker">Review</p>
+                          <h2>面试复习</h2>
+                        </div>
+                        <div class="fg-review-list">
+                          <!--[--><a href="/raw-bits/interview/questions"
+                            >高频八股题 <span>概念模型和回答结构</span></a
+                          ><a href="/raw-bits/browser/render"
+                            >浏览器渲染原理
+                            <span>DOM、CSSOM、布局和绘制</span></a
+                          ><a href="/raw-bits/engineering/vite"
+                            >Vite 核心原理
+                            <span>ESM、预构建、HMR 和 Rollup</span></a
+                          ><a href="/raw-bits/interview/resume"
+                            >简历建议 <span>项目亮点和结果表达</span></a
+                          ><!--]-->
+                        </div>
+                      </div>
+                    </section>
+                    <section class="fg-section fg-footer-entry">
+                      <div>
+                        <p class="fg-kicker">Maintain</p>
+                        <h2>长期维护入口</h2>
+                        <p>
+                          新增文章时，优先保持目录稳定、标题清楚、侧边栏同步。
+                        </p>
+                      </div>
+                      <div class="fg-actions">
+                        <a href="/raw-bits/writing-guide">写作指南</a
+                        ><a href="https://github.com/your-name/raw-bits"
+                          >GitHub 仓库</a
+                        >
+                      </div>
+                    </section>
+                  </div>
+                </div>
+              </div>
+              <!--]-->
+            </div>
+          </div>
+        </div>
+        <footer class="VPFooter" data-v-9a104c51 data-v-e315a0ad>
+          <div class="container" data-v-e315a0ad>
+            <p class="message" data-v-e315a0ad>
+              Released under the MIT License.
+            </p>
+            <p class="copyright" data-v-e315a0ad>
+              Copyright © 2026 Front Guide
+            </p>
+          </div>
+        </footer>
+        <!--[--><!--[--><!--[--><!--]--><!--v-if--><!--[--><!--]--><!--[--><!--]--><!--[-->
+        <div
+          class="tk-footer-info tk-wallpaper-outside"
+          role="contentinfo"
+          aria-label="页脚信息"
+        >
+          <!--v-if--><!--[--><!--[--><!--]-->
+          <div
+            class="tk-footer-info__list flx-wrap-justify-center"
+            role="list"
+            aria-label="页脚内容"
+          >
+            <!--[-->
+            <div
+              class="tk-footer-info__list__item flx-align-center"
+              role="listitem"
+            >
+              <i
+                class="tk-icon"
+                style="
+                  --icon-color: var(--vp-c-text-2);
+                  --icon-size: 16px;
+                  --icon-color-hover: var(--tk-theme-color);
+                "
+                aria-hidden="true"
+                ><svg
+                  width="128"
+                  height="128"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <title>主题</title>
+                  <path
+                    d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10a2.5 2.5 0 0 0 2.5-2.5c0-.61-.23-1.2-.64-1.67a.528.528 0 0 1-.13-.33c0-.28.22-.5.5-.5H16c3.31 0 6-2.69 6-6c0-4.96-4.49-9-10-9zm5.5 11c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5s1.5.67 1.5 1.5s-.67 1.5-1.5 1.5zm-3-4c-.83 0-1.5-.67-1.5-1.5S13.67 6 14.5 6s1.5.67 1.5 1.5S15.33 9 14.5 9zM5 11.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5S7.33 13 6.5 13S5 12.33 5 11.5zm6-4c0 .83-.67 1.5-1.5 1.5S8 8.33 8 7.5S8.67 6 9.5 6s1.5.67 1.5 1.5z"
+                  /></svg></i
+              ><a
+                href="https://github.com/Kele-Bingtang/vitepress-theme-teek"
+                target="_blank"
+                aria-label="Theme By Teek"
+                >Theme By Teek</a
+              >
+            </div>
+            <div
+              class="tk-footer-info__list__item flx-align-center"
+              role="listitem"
+            >
+              <i
+                class="tk-icon"
+                style="
+                  --icon-color: var(--vp-c-text-2);
+                  --icon-size: 16px;
+                  --icon-color-hover: var(--tk-theme-color);
+                "
+                aria-hidden="true"
+                ><svg
+                  t="1695543755857"
+                  class="icon"
+                  viewBox="0 0 1024 1024"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  p-id="89399"
+                  width="200"
+                  height="200"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M512 16C238.066 16 16 238.066 16 512s222.066 496 496 496 496-222.066 496-496S785.934 16 512 16z m234.268 693.506c-3.184 3.734-79.552 91.462-219.702 91.462-169.384 0-288.968-126.52-288.968-291.134 0-162.606 124.008-286.802 287.524-286.802 133.914 0 203.93 74.63 206.844 77.808a24 24 0 0 1 2.476 29.246l-44.76 69.31c-8.098 12.534-25.548 14.702-36.468 4.59-0.466-0.428-53.058-47.76-123.76-47.76-92.232 0-147.832 67.15-147.832 152.164 0 79.204 51.028 159.384 148.554 159.384 77.394 0 130.56-56.676 131.088-57.25 10.264-11.13 28.118-10.066 37.016 2.106l49.094 67.144a24.002 24.002 0 0 1-1.106 29.732z"
+                    p-id="89400"
+                  /></svg></i
+              ><span>Copyright 2026 </span>
+            </div>
+            <!--]--><!--v-if-->
+          </div>
+          <!--[--><!--]--><!--]-->
+        </div>
+        <!--]--><!--[--><!--]--><!--]--><!--[--><!--]--><!--]-->
+      </div>
+      <!--]-->
+    </div>
   </body>
 </html>

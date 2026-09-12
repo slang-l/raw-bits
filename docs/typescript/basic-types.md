@@ -9,18 +9,18 @@ outline: deep
 TypeScript 通过类型标注让变量、函数参数和返回值具有明确约束。
 
 ```ts
-let username: string = 'front-guide'
-let visible: boolean = true
-let count: number = 1
+let username: string = "raw-bits";
+let visible: boolean = true;
+let count: number = 1;
 ```
 
 ## 联合类型
 
 ```ts
-type Status = 'idle' | 'loading' | 'success' | 'error'
+type Status = "idle" | "loading" | "success" | "error";
 
 function setStatus(status: Status) {
-  return status
+  return status;
 }
 ```
 

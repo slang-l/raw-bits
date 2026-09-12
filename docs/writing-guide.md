@@ -29,11 +29,11 @@ outline: deep
 
 推荐字段：
 
-| 字段 | 说明 |
-| --- | --- |
-| `title` | 文章标题，会用于页面标题和搜索结果 |
-| `description` | 简短说明文章解决什么问题 |
-| `outline` | 推荐使用 `deep`，显示二级和三级标题 |
+| 字段          | 说明                                |
+| ------------- | ----------------------------------- |
+| `title`       | 文章标题，会用于页面标题和搜索结果  |
+| `description` | 简短说明文章解决什么问题            |
+| `outline`     | 推荐使用 `deep`，显示二级和三级标题 |
 
 ## 正文模板
 
@@ -92,10 +92,10 @@ npm install
 npm run docs:build
 ```
 
-如果部署到 `https://用户名.github.io/front-guide/`，保持 `docs/.vitepress/config.mts` 中的默认配置：
+如果部署到 `https://用户名.github.io/raw-bits/`，保持 `docs/.vitepress/config.mts` 中的默认配置：
 
 ```ts
-const siteBase = process.env.VITEPRESS_BASE ?? '/front-guide/'
+const siteBase = process.env.VITEPRESS_BASE ?? "/raw-bits/";
 ```
 
 如果使用自定义域名，可以设置为 `/`。

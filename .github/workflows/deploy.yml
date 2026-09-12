@@ -18,7 +18,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      VITEPRESS_BASE: /front-guide/
+      VITEPRESS_BASE: /raw-bits/
 
     steps:
       - name: Checkout

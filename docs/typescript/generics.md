@@ -14,20 +14,20 @@ outline: deep
 
 ```ts
 function identity(value: any) {
-  return value
+  return value;
 }
 
-const result = identity('front-guide')
+const result = identity("raw-bits");
 ```
 
 `any` 会丢失类型信息，调用方无法获得准确提示。使用泛型后，输入和输出之间的关系可以被保留下来。
 
 ```ts
 function identity<T>(value: T): T {
-  return value
+  return value;
 }
 
-const result = identity('front-guide')
+const result = identity("raw-bits");
 // result 的类型是 string
 ```
 
@@ -37,11 +37,11 @@ const result = identity('front-guide')
 
 ```ts
 function first<T>(list: T[]): T | undefined {
-  return list[0]
+  return list[0];
 }
 
-const numberItem = first([1, 2, 3])
-const stringItem = first(['vue', 'react'])
+const numberItem = first([1, 2, 3]);
+const stringItem = first(["vue", "react"]);
 ```
 
 调用时 TypeScript 会自动推断 `T` 的类型。
@@ -52,17 +52,17 @@ const stringItem = first(['vue', 'react'])
 
 ```ts
 interface ApiResponse<T> {
-  code: number
-  message: string
-  data: T
+  code: number;
+  message: string;
+  data: T;
 }
 
 interface User {
-  id: number
-  name: string
+  id: number;
+  name: string;
 }
 
-type UserResponse = ApiResponse<User>
+type UserResponse = ApiResponse<User>;
 ```
 
 这样可以统一接口响应结构，同时保留不同业务数据的具体类型。
@@ -73,11 +73,11 @@ type UserResponse = ApiResponse<User>
 
 ```ts
 function getLength<T extends { length: number }>(value: T): number {
-  return value.length
+  return value.length;
 }
 
-getLength('hello')
-getLength([1, 2, 3])
+getLength("hello");
+getLength([1, 2, 3]);
 ```
 
 `T extends { length: number }` 表示传入的类型必须具有 `length` 属性。
@@ -88,15 +88,15 @@ getLength([1, 2, 3])
 
 ```ts
 function getValue<T, K extends keyof T>(obj: T, key: K): T[K] {
-  return obj[key]
+  return obj[key];
 }
 
 const user = {
   id: 1,
-  name: 'Front Guide'
-}
+  name: "Front Guide",
+};
 
-const name = getValue(user, 'name')
+const name = getValue(user, "name");
 ```
 
 如果传入不存在的 key，TypeScript 会直接报错。
@@ -107,32 +107,32 @@ const name = getValue(user, 'name')
 
 ```ts
 interface PageResult<T> {
-  page: number
-  pageSize: number
-  total: number
-  list: T[]
+  page: number;
+  pageSize: number;
+  total: number;
+  list: T[];
 }
 
 interface Article {
-  id: number
-  title: string
-  createdAt: string
+  id: number;
+  title: string;
+  createdAt: string;
 }
 
 async function fetchArticles(): Promise<PageResult<Article>> {
-  const response = await fetch('/api/articles')
-  return response.json()
+  const response = await fetch("/api/articles");
+  return response.json();
 }
 ```
 
 组件中使用时，`list` 会被准确推断为 `Article[]`。
 
 ```ts
-const result = await fetchArticles()
+const result = await fetchArticles();
 
 result.list.forEach((article) => {
-  console.log(article.title)
-})
+  console.log(article.title);
+});
 ```
 
 ## 常见误区

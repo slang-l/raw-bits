@@ -14,7 +14,7 @@ Java 是静态类型语言，变量声明时需要明确类型。
 
 ```java
 int count = 10;
-String username = "front-guide";
+String username = "raw-bits";
 boolean enabled = true;
 ```
 
@@ -49,12 +49,12 @@ return "failed";
 
 包用于组织代码结构，访问修饰符用于控制可见性：
 
-| 修饰符 | 说明 |
-| --- | --- |
-| `public` | 对外可见 |
+| 修饰符      | 说明           |
+| ----------- | -------------- |
+| `public`    | 对外可见       |
 | `protected` | 子类和同包可见 |
-| 默认 | 同包可见 |
-| `private` | 当前类内部可见 |
+| 默认        | 同包可见       |
+| `private`   | 当前类内部可见 |
 
 后端项目中，控制器、服务、仓储和领域对象通常放在不同包下，方便维护职责边界。
 
